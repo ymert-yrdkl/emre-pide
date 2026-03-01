@@ -61,9 +61,6 @@ const menuData = {
         { name: "Profiterol", price: 60 },
         { name: "Supangle", price: 60 },
         { name: "Kazandibi", price: 60 },
-        { name: "Sufle", price: 120 },
-        { name: "Katmer", price: 130 },
-        { name: "Künefe", price: 120 },
     ],
     kiremit: [
         { name: "Kiremitte Köfte", price: 280 },
@@ -80,7 +77,7 @@ const menuData = {
         { name: "Kutu Meyve Suyu", price: 50 },
         { name: "Şişe Kola - Fanta", price: 40 },
         { name: "Kutu Cola Zero", price: 50 },
-        { name: "Laz Bombası", price: 40 },
+
         { name: "Uludağ Gazoz", price: 40 },
         { name: "Şalgam (Acılı/Acısız)", price: 40 },
         { name: "Ayran (Büyük)", price: 30 },
