@@ -183,7 +183,7 @@ export default function MenuPage() {
                         📍 Fiyatlar güncel olup değişiklik gösterebilir
                     </p>
                     <a
-                        href="tel:+905551234567"
+                        href="tel:+903805245701"
                         className="inline-flex items-center gap-2 bg-[var(--primary)] text-white font-semibold px-6 py-3 rounded-full hover:bg-[var(--primary-dark)] transition-colors text-sm"
                     >
                         <span>📞</span>
@@ -207,8 +207,12 @@ export default function MenuPage() {
                         priceRange: "₺",
                         address: {
                             "@type": "PostalAddress",
+                            streetAddress: "Azmimilli, Serhat Sk.",
+                            addressLocality: "Düzce",
+                            postalCode: "81020",
                             addressCountry: "TR",
                         },
+                        telephone: "+90 380 524 57 01",
                         menu: "https://emrepide.com.tr/menu",
                         hasMenu: {
                             "@type": "Menu",

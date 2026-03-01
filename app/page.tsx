@@ -53,7 +53,7 @@ export default function Home() {
           </Link>
 
           <a
-            href="tel:+905551234567"
+            href="tel:+903805245701"
             className="flex items-center gap-4 bg-[var(--primary)] rounded-2xl p-5 shadow-sm hover:bg-[var(--primary-dark)] transition-all group"
           >
             <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
@@ -61,7 +61,7 @@ export default function Home() {
             </div>
             <div className="flex-1">
               <div className="font-semibold text-white">Hemen Ara</div>
-              <div className="text-sm text-white/70">0555 123 45 67</div>
+              <div className="text-sm text-white/70">0380 524 57 01</div>
             </div>
           </a>
         </div>
@@ -69,7 +69,7 @@ export default function Home() {
         {/* Footer */}
         <div className="text-center mt-8 animate-fade-in-up-delay-3">
           <p className="text-xs text-[var(--text-light)]">
-            © 2025 Emre Pide Salonu — Tüm hakları saklıdır
+            © 2026 Emre Pide Salonu — Tüm hakları saklıdır
           </p>
         </div>
       </div>

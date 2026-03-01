@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     default: "Emre Pide Salonu — Taş Fırında Geleneksel Lezzet",
   },
   description:
-    "Emre Pide Salonu — Taş fırında pişmiş geleneksel Türk pideleri. Taze malzemeler, eşsiz lezzet. Menümüzü inceleyin ve sipariş verin.",
-  keywords: ["pide", "emre pide", "taş fırın", "türk mutfağı", "pide salonu"],
+    "Emre Pide Salonu — Düzce'de taş fırında pişmiş geleneksel Türk pideleri. Taze malzemeler, eşsiz lezzet. Menümüzü inceleyin ve sipariş verin.",
+  keywords: ["pide", "emre pide", "düzce pide", "taş fırın", "türk mutfağı", "pide salonu", "düzce"],
   openGraph: {
     type: "website",
     locale: "tr_TR",
