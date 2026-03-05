@@ -14,56 +14,47 @@ export const metadata: Metadata = {
 
 export default function QRMenuPage() {
   return (
-    <div className="min-h-screen bg-[#f7f3ec] text-[#20140d]">
-      <header className="border-b border-[#e6dac9] bg-[#fffdf9]">
-        <div className="w-full max-w-[920px] mx-auto px-4 sm:px-6 py-5 flex items-center justify-center gap-3">
-          <Image
-            src="/images/logo.svg"
-            alt="Emre Pide Logo"
-            width={42}
-            height={42}
-            priority
-            className="rounded-md"
-          />
-          <div className="leading-tight text-center">
-            <p className="font-[family-name:var(--font-playfair)] text-[1.5rem] font-semibold">Emre Pide</p>
-            <p className="text-xs tracking-[0.22em] text-[#7a6252]">QR MENÜ</p>
-          </div>
-        </div>
-      </header>
-
-      <main className="w-full max-w-[920px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-        <section className="bg-white border border-[#eadfce] rounded-2xl p-6 sm:p-7 mb-7 text-center shadow-sm">
-          <h1 className="font-[family-name:var(--font-playfair)] text-[2rem] leading-none mb-2">Menü</h1>
-          <p className="text-sm text-[#6e5747] mb-5">Düzce - Azmimilli, Serhat Sk. - 0380 524 57 01</p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="tel:+903805245701"
-              className="inline-flex items-center justify-center gap-2 bg-[#b7392c] text-white font-semibold px-5 py-3 rounded-full no-underline hover:bg-[#982f24] transition-colors"
-            >
-              <span>📞</span>
-              Sipariş Ver
-            </a>
-            <a
-              href="https://wa.me/903805245701"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold px-5 py-3 rounded-full no-underline hover:bg-[#1ea952] transition-colors"
-            >
-              <span>💬</span>
-              WhatsApp
-            </a>
+    <div className="min-h-screen bg-[#f5f1ea] text-[#22150f]">
+      <main className="px-4 py-6" style={{ maxWidth: 860, margin: "0 auto" }}>
+        <section className="rounded-3xl border border-[#e7dcca] bg-white px-5 py-6 shadow-sm mb-5">
+          <div className="flex flex-col items-center text-center gap-2">
+            <Image
+              src="/images/logo.svg"
+              alt="Emre Pide"
+              width={56}
+              height={56}
+              priority
+              className="rounded-lg"
+            />
+            <p className="font-[family-name:var(--font-playfair)] text-4xl leading-none">Emre Pide</p>
+            <p className="text-xs tracking-[0.24em] text-[#7a6352]">MENÜ</p>
+            <p className="text-sm text-[#6d5849] mt-1">İletişim: 0380 524 57 01</p>
+            <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto mt-2">
+              <a
+                href="tel:+903805245701"
+                className="inline-flex items-center justify-center rounded-full bg-[#b33b2f] text-white font-semibold px-5 py-3 no-underline hover:bg-[#963226] transition-colors"
+              >
+                Sipariş Ver
+              </a>
+              <a
+                href="https://wa.me/903805245701"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-[#25D366] text-white font-semibold px-5 py-3 no-underline hover:bg-[#1ea952] transition-colors"
+              >
+                WhatsApp
+              </a>
+            </div>
           </div>
         </section>
 
-        <nav className="bg-white border border-[#eadfce] rounded-2xl p-3.5 mb-8 sticky top-3 z-30 shadow-sm">
+        <nav className="sticky top-3 z-20 rounded-2xl border border-[#e7dcca] bg-white/95 backdrop-blur px-3 py-3 mb-6 shadow-sm">
           <div className="flex gap-2 overflow-x-auto scrollbar-hide">
             {Object.entries(categoryInfo).map(([key, value]) => (
               <a
                 key={key}
                 href={`#${key}`}
-                className="inline-flex items-center gap-1.5 whitespace-nowrap px-4 py-2 text-sm rounded-full bg-[#f3e9dc] text-[#6d5442] font-medium no-underline hover:bg-[#e8dac7] transition-colors"
+                className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#f3e9dc] px-4 py-2 text-sm font-medium text-[#6f5542] no-underline hover:bg-[#eadcc9]"
               >
                 <span>{value.emoji}</span>
                 <span>{value.label}</span>
@@ -80,26 +71,24 @@ export default function QRMenuPage() {
               <section key={category} id={category} className="scroll-mt-24">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-xl">{info.emoji}</span>
-                  <h2 className="font-[family-name:var(--font-playfair)] text-[1.6rem] leading-none">
-                    {info.label}
-                  </h2>
+                  <h2 className="font-[family-name:var(--font-playfair)] text-3xl leading-none">{info.label}</h2>
                 </div>
 
-                <div className="space-y-5">
+                <div className="space-y-4">
                   {items.map((item) => (
                     <article
                       key={`${category}-${item.name}`}
-                      className="bg-white border border-[#eadfce] rounded-2xl p-4 sm:p-5 shadow-sm"
+                      className="rounded-2xl border border-[#e7dcca] bg-white p-4 sm:p-5 shadow-sm"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="relative w-[92px] h-[76px] rounded-xl overflow-hidden bg-[#efe3d4] shrink-0">
+                        <div className="relative h-[78px] w-[96px] shrink-0 overflow-hidden rounded-xl bg-[#efe3d4]">
                           {item.image ? (
                             <Image
                               src={item.image}
                               alt={item.name}
                               fill
                               className="object-cover"
-                              sizes="92px"
+                              sizes="96px"
                             />
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center text-2xl">🥙</div>
@@ -107,13 +96,10 @@ export default function QRMenuPage() {
                         </div>
 
                         <div className="min-w-0 flex-1">
-                          <h3 className="font-semibold text-[1.1rem] leading-tight">{item.name}</h3>
-                          <p className="text-xs text-[#8b7361] mt-1">
-                            {item.image ? "Görsel mevcut" : "Görsel yakında"}
-                          </p>
+                          <h3 className="text-lg font-semibold leading-snug">{item.name}</h3>
                         </div>
 
-                        <div className="shrink-0 rounded-full bg-[#b7392c]/10 text-[#b7392c] font-bold px-4 py-2 text-sm">
+                        <div className="shrink-0 rounded-full bg-[#b33b2f]/10 px-4 py-2 text-sm font-bold text-[#b33b2f]">
                           ₺{item.price}
                         </div>
                       </div>
@@ -125,7 +111,7 @@ export default function QRMenuPage() {
           })}
         </div>
 
-        <footer className="mt-10 bg-white border border-[#eadfce] rounded-2xl p-5 text-center text-sm text-[#6e5747]">
+        <footer className="mt-10 rounded-2xl border border-[#e7dcca] bg-white px-4 py-4 text-center text-sm text-[#6d5849]">
           Fiyatlar güncel olup dönemsel olarak değişebilir.
         </footer>
       </main>
