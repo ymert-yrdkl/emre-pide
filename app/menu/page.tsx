@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
     title: "Menü",
@@ -9,42 +10,42 @@ export const metadata: Metadata = {
 // Menü verileri — ileride veritabanından çekilecek
 const menuData = {
     pideler: [
-        { name: "Kıymalı Pide", price: 150 },
-        { name: "Kıymalı Kaşarlı Pide", price: 170 },
+        { name: "Kıymalı Pide", price: 150, image: "/images/menu/kıymalı.png" },
+        { name: "Kıymalı Kaşarlı Pide", price: 170, image: "/images/menu/kıymalı kaşarlı.png" },
         { name: "Kuşbaşılı Pide", price: 170 },
-        { name: "Kuşbaşılı Kaşarlı Pide", price: 190 },
-        { name: "Kaşarlı Pide", price: 170 },
-        { name: "Kaşarlı Sucuklu Pide", price: 200 },
-        { name: "Kaşarlı Yumurtalı Pide", price: 180 },
-        { name: "Kaşarlı Sucuklu Yumurtalı Pide", price: 210 },
-        { name: "Trabzon Pide", price: 220 },
+        { name: "Kuşbaşılı Kaşarlı Pide", price: 190, image: "/images/menu/kuşbaşı kaşarlı.png" },
+        { name: "Kaşarlı Pide", price: 170, image: "/images/menu/kaşarlı.png" },
+        { name: "Kaşarlı Sucuklu Pide", price: 200, image: "/images/menu/kaşarlı sucuklu.png" },
+        { name: "Kaşarlı Yumurtalı Pide", price: 180, image: "/images/menu/kaşarlı yumurtalı.png" },
+        { name: "Kaşarlı Sucuklu Yumurtalı Pide", price: 210, image: "/images/menu/sucuklu kaşarlı yumurtalı.png" },
+        { name: "Trabzon Pide", price: 220, image: "/images/menu/trabzon pide.png" },
         { name: "Trabzon Yağlısı Pide", price: 230 },
-        { name: "Tavuklu Pide", price: 130 },
-        { name: "Tavuklu Pide (Kaşarlı)", price: 150 },
+        { name: "Tavuklu Pide", price: 130, image: "/images/menu/TAVUKLU PİDE.png" },
+        { name: "Tavuklu Pide (Kaşarlı)", price: 150, image: "/images/menu/TAVUKLU KAŞARLI.png" },
         { name: "Çıtır Kıymalı Pide", price: 170 },
-        { name: "Çıtır Kıymalı Kaşarlı Pide", price: 190 },
-        { name: "Kavurmalı Pide", price: 250 },
-        { name: "Kavurmalı Kaşarlı Pide", price: 270 },
-        { name: "Pastırmalı Pide", price: 250 },
-        { name: "Pastırmalı Kaşarlı Pide", price: 270 },
-        { name: "Et Dönerli Pide", price: 250 },
-        { name: "Et Döner Kaşarlı Pide", price: 270 },
-        { name: "Bafra Pidesi", price: 200 },
-        { name: "Tavuk Dönerli Pide", price: 150 },
-        { name: "Tavuk Döner Kaşarlı Pide", price: 170 },
-        { name: "Sucuk Döner Pide", price: 260 },
-        { name: "Sucuk Döner Kaşarlı Pide", price: 280 },
+        { name: "Çıtır Kıymalı Kaşarlı Pide", price: 190, image: "/images/menu/çıtır kıyma kaşar.png" },
+        { name: "Kavurmalı Pide", price: 250, image: "/images/menu/kavurmalı pide.png" },
+        { name: "Kavurmalı Kaşarlı Pide", price: 270, image: "/images/menu/kavurmalı kaşarlı.png" },
+        { name: "Pastırmalı Pide", price: 250, image: "/images/menu/pastırmalı.png" },
+        { name: "Pastırmalı Kaşarlı Pide", price: 270, image: "/images/menu/pastırma kaşar.png" },
+        { name: "Et Dönerli Pide", price: 250, image: "/images/menu/et dönerli.png" },
+        { name: "Et Döner Kaşarlı Pide", price: 270, image: "/images/menu/et dönerli kaşarlı.png" },
+        { name: "Bafra Pidesi", price: 200, image: "/images/menu/bafra pidesi.png" },
+        { name: "Tavuk Dönerli Pide", price: 150, image: "/images/menu/kaşarlı tavık dönerli pide.png" },
+        { name: "Tavuk Döner Kaşarlı Pide", price: 170, image: "/images/menu/tavuk dönerli kaşarlı pide.png" },
+        { name: "Sucuk Döner Pide", price: 260, image: "/images/menu/sucuk döner.png" },
+        { name: "Sucuk Döner Kaşarlı Pide", price: 280, image: "/images/menu/sucuk döner kaşar.png" },
         { name: "Emre Pide Special", price: 170 },
         { name: "Çikolatalı Pide", price: 150 },
         { name: "Çikolatalı Cevizli Pide", price: 170 },
-        { name: "Tam Karışık Pide", price: 220 },
+        { name: "Tam Karışık Pide", price: 220, image: "/images/menu/tam karışık pide.png" },
         { name: "Kaşarlı Sebzeli Pide", price: 190 },
-        { name: "Kuşbaşı Yumurtalı Pide", price: 180 },
-        { name: "Kıymalı Yumurtalı Pide", price: 160 },
-        { name: "Dört Mevsim Pide", price: 250 },
+        { name: "Kuşbaşı Yumurtalı Pide", price: 180, image: "/images/menu/kuşbaşı yumurtalı.png" },
+        { name: "Kıymalı Yumurtalı Pide", price: 160, image: "/images/menu/kıymalı yumurtalı.png" },
+        { name: "Dört Mevsim Pide", price: 250, image: "/images/menu/dört mevsim pide.png" },
         { name: "Kıymalı Mantarlı Pide", price: 200 },
         { name: "Kaşarlı Sosisli Pide", price: 220 },
-        { name: "Akdeniz Pide", price: 220 },
+        { name: "Akdeniz Pide", price: 220, image: "/images/menu/akdeniz pide.png" },
         { name: "Kokoreçli Pide", price: 270 },
         { name: "Ispanaklı Pide", price: 220 },
         { name: "Pizza", price: 220 },
@@ -63,10 +64,10 @@ const menuData = {
         { name: "Kazandibi", price: 60 },
     ],
     kiremit: [
-        { name: "Kiremitte Köfte", price: 280 },
-        { name: "Kiremitte Kuşbaşı", price: 280 },
-        { name: "Kiremitte Sucuk", price: 220 },
-        { name: "Kiremitte Tavuk", price: 200 },
+        { name: "Kiremitte Köfte", price: 280, image: "/images/menu/kiremit köfte.png" },
+        { name: "Kiremitte Kuşbaşı", price: 280, image: "/images/menu/kiremit kuşbaşı.png" },
+        { name: "Kiremitte Sucuk", price: 220, image: "/images/menu/kiremit sucuk.png" },
+        { name: "Kiremitte Tavuk", price: 200, image: "/images/menu/kiremit tavuk.png" },
         { name: "Kiremitte Kanat", price: 220 },
     ],
     icecekler: [
@@ -110,6 +111,13 @@ export default function MenuPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </a>
+                    <Image
+                        src="/images/logo.svg"
+                        alt="Emre Pide Logo"
+                        width={36}
+                        height={36}
+                        className="rounded-lg"
+                    />
                     <div>
                         <h1 className="text-lg font-bold font-[family-name:var(--font-playfair)] text-[var(--foreground)]">
                             Emre Pide Salonu
@@ -157,8 +165,24 @@ export default function MenuPage() {
                                 {items.map((item, index) => (
                                     <div
                                         key={index}
-                                        className="flex items-start justify-between gap-4 bg-[var(--card-bg)] rounded-xl p-4 border border-[var(--border)] hover:shadow-sm transition-shadow"
+                                        className="flex items-center gap-3 bg-[var(--card-bg)] rounded-xl p-3 border border-[var(--border)] hover:shadow-sm transition-shadow"
                                     >
+                                        {/* Food Image */}
+                                        {"image" in item && item.image ? (
+                                            <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 relative">
+                                                <Image
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    fill
+                                                    className="object-cover"
+                                                    sizes="64px"
+                                                />
+                                            </div>
+                                        ) : (
+                                            <div className="w-16 h-16 rounded-lg bg-[var(--warm-bg)] flex items-center justify-center flex-shrink-0">
+                                                <span className="text-2xl opacity-40">🫓</span>
+                                            </div>
+                                        )}
                                         <div className="flex-1 min-w-0">
                                             <h3 className="font-semibold text-[var(--foreground)] text-[15px]">
                                                 {item.name}

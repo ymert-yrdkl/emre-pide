@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
     title: "İletişim",
@@ -17,6 +18,13 @@ export default function IletisimPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </a>
+                    <Image
+                        src="/images/logo.svg"
+                        alt="Emre Pide Logo"
+                        width={36}
+                        height={36}
+                        className="rounded-lg"
+                    />
                     <div>
                         <h1 className="text-lg font-bold font-[family-name:var(--font-playfair)] text-[var(--foreground)]">
                             Emre Pide Salonu

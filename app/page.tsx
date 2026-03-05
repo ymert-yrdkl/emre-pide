@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -7,8 +8,15 @@ export default function Home() {
       <div className="w-full max-w-md">
         {/* Logo / Brand Area */}
         <div className="text-center animate-fade-in-up">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[var(--primary)] mb-6 shadow-lg">
-            <span className="text-4xl">🫓</span>
+          <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-white mb-6 shadow-lg overflow-hidden">
+            <Image
+              src="/images/logo.svg"
+              alt="Emre Pide Logo"
+              width={80}
+              height={80}
+              className="object-contain"
+              priority
+            />
           </div>
           <h1 className="text-3xl font-bold font-[family-name:var(--font-playfair)] text-[var(--foreground)] mb-2">
             Emre Pide Salonu
