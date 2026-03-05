@@ -18,7 +18,7 @@ export default function QRMenuClient() {
 
   return (
     <div className="min-h-screen bg-[#f7f4ee] text-[#1f140d]">
-      <main className="mx-auto w-full max-w-[720px] px-4 py-8">
+      <main className="mx-auto w-full max-w-[780px] px-4 py-8">
         <header className="mb-6 text-center">
           <div className="mx-auto mb-2 flex w-fit items-center gap-3 rounded-2xl border border-[#e8ddcf] bg-white px-4 py-3 shadow-sm">
             <Image src="/images/logo.svg" alt="Emre Pide" width={46} height={46} priority className="rounded-md" />
@@ -30,11 +30,11 @@ export default function QRMenuClient() {
         </header>
 
         {mode === "home" && (
-          <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <section className="mx-auto grid max-w-[720px] grid-cols-1 gap-4 sm:grid-cols-2">
             <button
               type="button"
               onClick={() => setMode("menu")}
-              className="rounded-2xl border border-[#e8ddcf] bg-white p-6 text-left shadow-sm transition hover:-translate-y-0.5"
+              className="aspect-[1.618/1] rounded-2xl border border-[#e8ddcf] bg-white p-6 text-left shadow-sm transition hover:-translate-y-0.5"
             >
               <p className="mb-2 text-2xl">📋</p>
               <h2 className="text-2xl font-semibold">Menü</h2>
@@ -44,7 +44,7 @@ export default function QRMenuClient() {
             <button
               type="button"
               onClick={() => setMode("contact")}
-              className="rounded-2xl border border-[#e8ddcf] bg-white p-6 text-left shadow-sm transition hover:-translate-y-0.5"
+              className="aspect-[1.618/1] rounded-2xl border border-[#e8ddcf] bg-white p-6 text-left shadow-sm transition hover:-translate-y-0.5"
             >
               <p className="mb-2 text-2xl">📞</p>
               <h2 className="text-2xl font-semibold">İletişim</h2>
@@ -54,7 +54,7 @@ export default function QRMenuClient() {
         )}
 
         {mode === "menu" && (
-          <section>
+          <section className="mx-auto w-full max-w-[700px]">
             <div className="mb-5 flex items-center justify-between">
               <h2 className="font-[family-name:var(--font-playfair)] text-4xl">Menü</h2>
               <button
@@ -101,7 +101,7 @@ export default function QRMenuClient() {
         )}
 
         {mode === "contact" && (
-          <section>
+          <section className="mx-auto w-full max-w-[700px]">
             <div className="mb-5 flex items-center justify-between">
               <h2 className="font-[family-name:var(--font-playfair)] text-4xl">İletişim</h2>
               <button
