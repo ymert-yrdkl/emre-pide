@@ -52,23 +52,23 @@ export default function FAQ() {
         <section
             ref={sectionRef}
             id="sss"
-            className="py-20 px-[5%] bg-background scroll-mt-20"
+            className="py-24 px-6 lg:px-10 bg-background scroll-mt-20"
         >
             <div className="max-w-6xl mx-auto">
                 {/* Section Header */}
-                <div className="text-center mb-12">
+                <div className="text-center mb-14">
                     <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-primary inline-block mb-3">
                         Merak Edilenler
                     </span>
-                    <h2 className="font-[family-name:var(--font-serif)] text-[clamp(2rem,4vw,2.8rem)] leading-tight">
+                    <h2 className="font-[family-name:var(--font-serif)] text-[clamp(2rem,3.5vw,2.8rem)] leading-tight">
                         Sıkça Sorulan{" "}
                         <em className="italic text-primary">Sorular</em>
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-16 items-start">
                     {/* Accordion */}
-                    <div className="border-t border-border">
+                    <div className="border-t border-border max-w-2xl">
                         {faqData.map((item, index) => (
                             <div key={index} className="accordion-item">
                                 <button
@@ -105,7 +105,7 @@ export default function FAQ() {
                     {/* Rotating Pide Image */}
                     <div className="hidden lg:flex items-center justify-center sticky top-32">
                         <div
-                            className="relative w-[260px] h-[260px]"
+                            className="relative w-[240px] h-[240px]"
                             style={{ transform: `rotate(${rotation}deg)`, transition: "transform 0.1s linear" }}
                         >
                             <Image
@@ -113,7 +113,7 @@ export default function FAQ() {
                                 alt="Trabzon Pide"
                                 fill
                                 className="object-contain drop-shadow-2xl"
-                                sizes="260px"
+                                sizes="240px"
                             />
                         </div>
                     </div>

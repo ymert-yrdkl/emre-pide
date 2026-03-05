@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Footer() {
     return (
         <footer className="bg-koyu text-krem/60 border-t border-gold/15">
-            <div className="max-w-6xl mx-auto px-[5%] py-16">
+            <div className="max-w-6xl mx-auto px-6 lg:px-10 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {/* Brand */}
                     <div>
@@ -23,8 +23,8 @@ export default function Footer() {
                                 <span className="block text-krem/40 text-xs italic">Salonu</span>
                             </div>
                         </div>
-                        <p className="text-sm leading-relaxed text-krem/50">
-                            1999'dan bu yana Düzce'de taş fırında pişen geleneksel Türk
+                        <p className="text-sm leading-relaxed text-krem/50 max-w-xs">
+                            1999&apos;dan bu yana Düzce&apos;de taş fırında pişen geleneksel Türk
                             pidelerinin adresi. Taze malzeme, eşsiz lezzet.
                         </p>
                     </div>
