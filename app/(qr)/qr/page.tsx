@@ -16,7 +16,7 @@ export default function QRMenuPage() {
   return (
     <div className="min-h-screen bg-[#f7f3ec] text-[#20140d]">
       <header className="border-b border-[#e6dac9] bg-[#fffdf9]">
-        <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-center gap-3">
+        <div className="w-full max-w-[920px] mx-auto px-4 sm:px-6 py-5 flex items-center justify-center gap-3">
           <Image
             src="/images/logo.svg"
             alt="Emre Pide Logo"
@@ -32,10 +32,10 @@ export default function QRMenuPage() {
         </div>
       </header>
 
-      <main className="max-w-3xl mx-auto px-4 py-5">
-        <section className="bg-white border border-[#eadfce] rounded-2xl p-5 mb-5 text-center shadow-sm">
+      <main className="w-full max-w-[920px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <section className="bg-white border border-[#eadfce] rounded-2xl p-6 sm:p-7 mb-7 text-center shadow-sm">
           <h1 className="font-[family-name:var(--font-playfair)] text-[2rem] leading-none mb-2">Menü</h1>
-          <p className="text-sm text-[#6e5747] mb-4">Düzce - Azmimilli, Serhat Sk. - 0380 524 57 01</p>
+          <p className="text-sm text-[#6e5747] mb-5">Düzce - Azmimilli, Serhat Sk. - 0380 524 57 01</p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
@@ -57,7 +57,7 @@ export default function QRMenuPage() {
           </div>
         </section>
 
-        <nav className="bg-white border border-[#eadfce] rounded-2xl p-3 mb-6 sticky top-2 z-30 shadow-sm">
+        <nav className="bg-white border border-[#eadfce] rounded-2xl p-3.5 mb-8 sticky top-3 z-30 shadow-sm">
           <div className="flex gap-2 overflow-x-auto scrollbar-hide">
             {Object.entries(categoryInfo).map(([key, value]) => (
               <a
@@ -72,34 +72,34 @@ export default function QRMenuPage() {
           </div>
         </nav>
 
-        <div className="space-y-8">
+        <div className="space-y-10">
           {Object.entries(menuData).map(([category, items]) => {
             const info = categoryInfo[category as keyof typeof categoryInfo];
 
             return (
               <section key={category} id={category} className="scroll-mt-24">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-2 mb-4">
                   <span className="text-xl">{info.emoji}</span>
                   <h2 className="font-[family-name:var(--font-playfair)] text-[1.6rem] leading-none">
                     {info.label}
                   </h2>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-5">
                   {items.map((item) => (
                     <article
                       key={`${category}-${item.name}`}
-                      className="bg-white border border-[#eadfce] rounded-2xl p-3 shadow-sm"
+                      className="bg-white border border-[#eadfce] rounded-2xl p-4 sm:p-5 shadow-sm"
                     >
-                      <div className="flex items-center gap-3">
-                        <div className="relative w-[86px] h-[70px] rounded-xl overflow-hidden bg-[#efe3d4] shrink-0">
+                      <div className="flex items-center gap-4">
+                        <div className="relative w-[92px] h-[76px] rounded-xl overflow-hidden bg-[#efe3d4] shrink-0">
                           {item.image ? (
                             <Image
                               src={item.image}
                               alt={item.name}
                               fill
                               className="object-cover"
-                              sizes="86px"
+                              sizes="92px"
                             />
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center text-2xl">🥙</div>
@@ -107,13 +107,13 @@ export default function QRMenuPage() {
                         </div>
 
                         <div className="min-w-0 flex-1">
-                          <h3 className="font-semibold text-[1.05rem] leading-tight">{item.name}</h3>
+                          <h3 className="font-semibold text-[1.1rem] leading-tight">{item.name}</h3>
                           <p className="text-xs text-[#8b7361] mt-1">
                             {item.image ? "Görsel mevcut" : "Görsel yakında"}
                           </p>
                         </div>
 
-                        <div className="shrink-0 rounded-full bg-[#b7392c]/10 text-[#b7392c] font-bold px-3 py-1.5 text-sm">
+                        <div className="shrink-0 rounded-full bg-[#b7392c]/10 text-[#b7392c] font-bold px-4 py-2 text-sm">
                           ₺{item.price}
                         </div>
                       </div>
@@ -125,7 +125,7 @@ export default function QRMenuPage() {
           })}
         </div>
 
-        <footer className="mt-8 bg-white border border-[#eadfce] rounded-2xl p-4 text-center text-sm text-[#6e5747]">
+        <footer className="mt-10 bg-white border border-[#eadfce] rounded-2xl p-5 text-center text-sm text-[#6e5747]">
           Fiyatlar güncel olup dönemsel olarak değişebilir.
         </footer>
       </main>
