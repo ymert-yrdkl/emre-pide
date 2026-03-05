@@ -38,7 +38,13 @@ export default function QRMenuPage() {
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 pt-5 pb-8">
+      <div className="max-w-4xl mx-auto px-4 pt-4">
+        <div className="rounded-xl bg-[#b73a2d] text-white text-xs font-semibold tracking-wide px-3 py-2 inline-flex">
+          QR MENU V2 - BUILD ff3a2a6
+        </div>
+      </div>
+
+      <main className="max-w-4xl mx-auto px-4 pt-4 pb-8">
         <section className="rounded-2xl bg-[#2a160e] text-[#f8efe2] p-5 md:p-6 shadow-[0_10px_30px_rgba(35,20,10,0.25)] mb-5">
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div>
@@ -126,3 +132,4 @@ export default function QRMenuPage() {
     </div>
   );
 }
+
