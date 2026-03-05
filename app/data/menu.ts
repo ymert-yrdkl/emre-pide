@@ -11,12 +11,12 @@ export type MenuCategoryKey =
   | "kiremit"
   | "icecekler";
 
-export const categoryInfo: Record<MenuCategoryKey, { emoji: string; label: string }> = {
-  pideler: { emoji: "🥙", label: "Pideler" },
-  lahmacun: { emoji: "🌯", label: "Lahmacun" },
-  tatlilar: { emoji: "🍮", label: "Tatlılar" },
-  kiremit: { emoji: "🍳", label: "Kiremit" },
-  icecekler: { emoji: "🥤", label: "İçecekler" },
+export const categoryInfo: Record<MenuCategoryKey, { emoji: string; label: string; itemIcon: string }> = {
+  pideler: { emoji: "🥙", label: "Pideler", itemIcon: "🍕" },
+  lahmacun: { emoji: "🌯", label: "Lahmacun", itemIcon: "🌶️" },
+  tatlilar: { emoji: "🍮", label: "Tatlılar", itemIcon: "🍰" },
+  kiremit: { emoji: "🍳", label: "Kiremit", itemIcon: "🔥" },
+  icecekler: { emoji: "🥤", label: "İçecekler", itemIcon: "🧃" },
 };
 
 export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
@@ -28,15 +28,11 @@ export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
     { name: "Kaşarlı Pide", price: 170, image: "/images/menu/kaşarlı.png" },
     { name: "Kaşarlı Sucuklu Pide", price: 200, image: "/images/menu/kaşarlı sucuklu.png" },
     { name: "Kaşarlı Yumurtalı Pide", price: 180, image: "/images/menu/kaşarlı yumurtalı.png" },
-    {
-      name: "Kaşarlı Sucuklu Yumurtalı Pide",
-      price: 210,
-      image: "/images/menu/sucuklu kaşarlı yumurtalı.png",
-    },
+    { name: "Kaşarlı Sucuklu Yumurtalı Pide", price: 210, image: "/images/menu/sucuklu kaşarlı yumurtalı.png" },
     { name: "Trabzon Pide", price: 220, image: "/images/menu/trabzon pide.png" },
     { name: "Trabzon Yağlısı Pide", price: 230 },
     { name: "Tavuklu Pide", price: 130, image: "/images/menu/TAVUKLU PİDE.png" },
-    { name: "Tavuklu Pide (Kaşarlı)", price: 150, image: "/images/menu/TAVUKLU KAŞARLI.png" },
+    { name: "Tavuklu Kaşarlı Pide", price: 150, image: "/images/menu/TAVUKLU KAŞARLI.png" },
     { name: "Çıtır Kıymalı Pide", price: 170 },
     { name: "Çıtır Kıymalı Kaşarlı Pide", price: 190, image: "/images/menu/çıtır kıyma kaşar.png" },
     { name: "Kavurmalı Pide", price: 250, image: "/images/menu/kavurmalı pide.png" },
@@ -47,26 +43,22 @@ export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
     { name: "Et Döner Kaşarlı Pide", price: 270, image: "/images/menu/et dönerli kaşarlı.png" },
     { name: "Bafra Pidesi", price: 200, image: "/images/menu/bafra pidesi.png" },
     { name: "Tavuk Dönerli Pide", price: 150, image: "/images/menu/kaşarlı tavık dönerli pide.png" },
-    {
-      name: "Tavuk Döner Kaşarlı Pide",
-      price: 170,
-      image: "/images/menu/tavuk dönerli kaşarlı pide.png",
-    },
+    { name: "Tavuk Döner Kaşarlı Pide", price: 170, image: "/images/menu/tavuk dönerli kaşarlı pide.png" },
     { name: "Sucuk Döner Pide", price: 260, image: "/images/menu/sucuk döner.png" },
     { name: "Sucuk Döner Kaşarlı Pide", price: 280, image: "/images/menu/sucuk döner kaşar.png" },
     { name: "Emre Pide Special", price: 170 },
     { name: "Çikolatalı Pide", price: 150 },
-    { name: "Çikolatalı Cevizli Pide", price: 170 },
+    { name: "Çikolatalı Cevizli Pide", price: 180 },
     { name: "Tam Karışık Pide", price: 220, image: "/images/menu/tam karışık pide.png" },
     { name: "Kaşarlı Sebzeli Pide", price: 190 },
     { name: "Kuşbaşı Yumurtalı Pide", price: 180, image: "/images/menu/kuşbaşı yumurtalı.png" },
     { name: "Kıymalı Yumurtalı Pide", price: 160, image: "/images/menu/kıymalı yumurtalı.png" },
     { name: "Dört Mevsim Pide", price: 250, image: "/images/menu/dört mevsim pide.png" },
-    { name: "Kıymalı Mantarlı Pide", price: 200 },
+    { name: "Kaşarlı Mantarlı Pide", price: 200 },
     { name: "Kaşarlı Sosisli Pide", price: 220 },
     { name: "Akdeniz Pide", price: 220, image: "/images/menu/akdeniz pide.png" },
     { name: "Kokoreçli Pide", price: 270 },
-    { name: "Ispanaklı Pide", price: 220 },
+    { name: "Ispanaklı Pide", price: 120 },
     { name: "Pizza", price: 220 },
     { name: "Ton Balıklı Pide", price: 225 },
     { name: "Beyaz Peynirli Pide", price: 170 },
@@ -81,6 +73,9 @@ export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
     { name: "Profiterol", price: 60 },
     { name: "Supangle", price: 60 },
     { name: "Kazandibi", price: 60 },
+    { name: "Suffle", price: 120 },
+    { name: "Katmer", price: 130 },
+    { name: "Künefe", price: 120 },
   ],
   kiremit: [
     { name: "Kiremitte Köfte", price: 280, image: "/images/menu/kiremit köfte.png" },
@@ -97,6 +92,7 @@ export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
     { name: "Kutu Meyve Suyu", price: 50 },
     { name: "Şişe Kola - Fanta", price: 40 },
     { name: "Kutu Cola Zero", price: 50 },
+    { name: "Laz Bombası", price: 40 },
     { name: "Uludağ Gazoz", price: 40 },
     { name: "Şalgam (Acılı/Acısız)", price: 40 },
     { name: "Ayran (Büyük)", price: 30 },
@@ -106,6 +102,6 @@ export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
     { name: "Su", price: 10 },
     { name: "Kutu Ice Tea", price: 50 },
     { name: "Pepsi Max", price: 50 },
-    { name: "Niğde Gazoz", price: 50 },
+    { name: "Niğde Gazoz", price: 40 },
   ],
 };
