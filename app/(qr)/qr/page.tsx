@@ -15,43 +15,55 @@ export const metadata: Metadata = {
 
 export default function QRMenuPage() {
   return (
-    <div className="min-h-screen bg-[var(--background)]">
-      <header className="bg-white border-b border-[var(--border)] sticky top-0 z-50">
-        <div className="max-w-lg mx-auto px-4 py-3 flex items-center justify-between">
+    <div className="min-h-screen bg-[linear-gradient(180deg,#f8efe2_0%,#fdf8f1_100%)]">
+      <header className="sticky top-0 z-50 border-b border-[#e9ddce] bg-[#fff9f1]/95 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <Image
-              src="/images/logo.svg"
-              alt="Emre Pide Logo"
-              width={36}
-              height={36}
-              className="rounded-lg"
-              priority
-            />
+            <Image src="/images/logo.svg" alt="Emre Pide Logo" width={40} height={40} className="rounded-lg" priority />
             <div>
-              <span className="font-[family-name:var(--font-playfair)] text-lg font-bold text-[var(--foreground)]">
+              <span className="font-[family-name:var(--font-playfair)] text-xl font-bold text-[var(--foreground)] leading-none">
                 Emre Pide
               </span>
-              <span className="block text-[0.65rem] text-[var(--text-muted)] tracking-wider">MENÜ</span>
+              <span className="block text-[0.72rem] text-[var(--text-muted)] tracking-[0.18em] mt-0.5">QR MENÜ</span>
             </div>
           </div>
+
           <a
             href="tel:+903805245701"
-            className="flex items-center gap-1.5 bg-[var(--primary)] text-white text-xs font-semibold px-3.5 py-2 rounded-full hover:bg-[var(--primary-dark)] transition-colors no-underline"
+            className="inline-flex items-center gap-2 bg-[var(--primary)] text-white text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-[var(--primary-dark)] transition-colors no-underline"
           >
             <span>📞</span>
-            <span>Sipariş</span>
+            Sipariş
           </a>
         </div>
       </header>
 
-      <div className="sticky top-[57px] z-40 bg-[var(--background)]/95 backdrop-blur-sm border-b border-[var(--border)] py-2.5">
-        <div className="max-w-lg mx-auto px-4">
+      <main className="max-w-4xl mx-auto px-4 pt-5 pb-8">
+        <section className="rounded-2xl bg-[#2a160e] text-[#f8efe2] p-5 md:p-6 shadow-[0_10px_30px_rgba(35,20,10,0.25)] mb-5">
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <div>
+              <p className="text-[0.72rem] tracking-[0.2em] uppercase text-[#d9b46b] mb-2">Taş Fırından Sofraya</p>
+              <h1 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl leading-tight">Menümüz</h1>
+              <p className="text-sm md:text-base text-[#f8efe2]/75 mt-2">40+ çeşit pide, lahmacun, kiremit ve içecekler</p>
+            </div>
+            <a
+              href="https://wa.me/903805245701"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] text-white font-semibold px-4 py-2.5 rounded-full hover:bg-[#1ea952] transition-colors no-underline"
+            >
+              💬 WhatsApp
+            </a>
+          </div>
+        </section>
+
+        <div className="sticky top-[73px] z-40 bg-[#fdf7ee]/95 backdrop-blur-sm border border-[#e9ddce] rounded-2xl p-2.5 mb-4">
           <nav className="flex gap-2 overflow-x-auto scrollbar-hide">
             {Object.entries(categoryInfo).map(([key, { emoji, label }]) => (
               <a
                 key={key}
                 href={`#${key}`}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-medium bg-[var(--warm-bg)] text-[var(--text-muted)] hover:bg-[var(--primary)] hover:text-white transition-colors whitespace-nowrap no-underline"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-[#f1e6d8] text-[#694a37] hover:bg-[var(--primary)] hover:text-white transition-colors whitespace-nowrap no-underline"
               >
                 <span>{emoji}</span>
                 <span>{label}</span>
@@ -59,12 +71,10 @@ export default function QRMenuPage() {
             ))}
           </nav>
         </div>
-      </div>
 
-      <main className="max-w-lg mx-auto px-4 py-5">
-        <MenuSections compact />
+        <MenuSections variant="qr" />
 
-        <div className="mt-6 p-4 bg-[var(--warm-bg)] rounded-2xl text-center">
+        <div className="mt-4 p-4 bg-[#f1e6d8] rounded-2xl text-center border border-[#e9ddce]">
           <p className="text-sm text-[var(--text-muted)] mb-3">📍 Fiyatlar güncel olup değişiklik gösterebilir</p>
           <a
             href="tel:+903805245701"
@@ -74,19 +84,6 @@ export default function QRMenuPage() {
             Sipariş İçin Ara
           </a>
         </div>
-
-        <div className="mt-4 text-center">
-          <a
-            href="https://wa.me/903805245701"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[#25D366] transition-colors no-underline"
-          >
-            💬 WhatsApp ile sipariş ver
-          </a>
-        </div>
-
-        <div className="h-6" />
       </main>
 
       <script

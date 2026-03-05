@@ -4,13 +4,12 @@ import { categoryInfo, menuData } from "@/app/data/menu";
 
 type MenuSectionsProps = {
   compact?: boolean;
+  variant?: "default" | "qr";
 };
 
-export default function MenuSections({ compact = false }: MenuSectionsProps) {
+export default function MenuSections({ compact = false, variant = "default" }: MenuSectionsProps) {
+  const isQr = variant === "qr";
   const imageSize = compact ? "w-14 h-14" : "w-16 h-16";
-  const cardClass = compact
-    ? "flex items-center gap-3 bg-white rounded-xl p-3 border border-[var(--border)] hover:shadow-sm transition-shadow"
-    : "flex items-center gap-3 bg-[var(--card-bg)] rounded-xl p-3 border border-[var(--border)] hover:shadow-sm transition-shadow";
 
   return (
     <>
@@ -18,7 +17,11 @@ export default function MenuSections({ compact = false }: MenuSectionsProps) {
         const info = categoryInfo[category as keyof typeof categoryInfo];
 
         return (
-          <section key={category} id={category} className="mb-8 scroll-mt-28">
+          <section
+            key={category}
+            id={category}
+            className={isQr ? "mb-8 scroll-mt-36 rounded-2xl bg-white/85 border border-[#eadfce] shadow-[0_8px_30px_rgba(35,20,10,0.06)] p-4 md:p-5" : "mb-8 scroll-mt-28"}
+          >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-[var(--primary)]/10 flex items-center justify-center text-xl">
                 {info.emoji}
@@ -31,7 +34,14 @@ export default function MenuSections({ compact = false }: MenuSectionsProps) {
 
             <div className="space-y-3">
               {items.map((item) => (
-                <div key={`${category}-${item.name}`} className={cardClass}>
+                <div
+                  key={`${category}-${item.name}`}
+                  className={isQr
+                    ? "flex items-center gap-3 bg-white rounded-xl p-3 border border-[#efe3d3] hover:shadow-sm transition-shadow"
+                    : compact
+                      ? "flex items-center gap-3 bg-white rounded-xl p-3 border border-[var(--border)] hover:shadow-sm transition-shadow"
+                      : "flex items-center gap-3 bg-[var(--card-bg)] rounded-xl p-3 border border-[var(--border)] hover:shadow-sm transition-shadow"}
+                >
                   {item.image ? (
                     <div className={`${imageSize} rounded-lg overflow-hidden flex-shrink-0 relative`}>
                       <Image
@@ -43,20 +53,18 @@ export default function MenuSections({ compact = false }: MenuSectionsProps) {
                       />
                     </div>
                   ) : (
-                    <div
-                      className={`${imageSize} rounded-lg bg-[var(--warm-bg)] flex items-center justify-center flex-shrink-0`}
-                    >
+                    <div className={`${imageSize} rounded-lg bg-[var(--warm-bg)] flex items-center justify-center flex-shrink-0`}>
                       <span className="text-2xl opacity-40">🥙</span>
                     </div>
                   )}
 
                   <div className="flex-1 min-w-0">
-                    <h3 className={compact ? "font-semibold text-[var(--foreground)] text-[14px]" : "font-semibold text-[var(--foreground)] text-[15px]"}>
+                    <h3 className={compact ? "font-semibold text-[var(--foreground)] text-[14px]" : "font-semibold text-[var(--foreground)] text-[15px] md:text-base"}>
                       {item.name}
                     </h3>
                   </div>
 
-                  <div className="flex-shrink-0 bg-[var(--primary)]/8 text-[var(--primary)] font-bold text-sm px-3 py-1.5 rounded-lg">
+                  <div className={isQr ? "flex-shrink-0 bg-[#b73a2d]/10 text-[#b73a2d] font-extrabold text-sm px-3 py-1.5 rounded-lg" : "flex-shrink-0 bg-[var(--primary)]/8 text-[var(--primary)] font-bold text-sm px-3 py-1.5 rounded-lg"}>
                     ₺{item.price}
                   </div>
                 </div>
