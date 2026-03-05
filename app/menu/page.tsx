@@ -103,37 +103,30 @@ const categoryInfo: Record<string, { emoji: string; label: string }> = {
 export default function MenuPage() {
     return (
         <div className="min-h-screen bg-[var(--background)]">
-            {/* Header */}
-            <header className="sticky top-0 z-50 bg-[var(--background)]/95 backdrop-blur-sm border-b border-[var(--border)]">
-                <div className="max-w-lg mx-auto px-4 py-4 flex items-center gap-3">
-                    <a href="/" className="text-[var(--text-muted)] hover:text-[var(--foreground)] transition-colors">
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </a>
-                    <Image
-                        src="/images/logo.svg"
-                        alt="Emre Pide Logo"
-                        width={36}
-                        height={36}
-                        className="rounded-lg"
-                    />
-                    <div>
-                        <h1 className="text-lg font-bold font-[family-name:var(--font-playfair)] text-[var(--foreground)]">
-                            Emre Pide Salonu
-                        </h1>
-                        <p className="text-xs text-[var(--text-light)]">Menü</p>
-                    </div>
+            {/* Hero Banner */}
+            <div className="bg-koyu pt-28 pb-10 px-[5%]">
+                <div className="max-w-3xl mx-auto text-center">
+                    <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-gold inline-block mb-3">
+                        Lezzetlerimiz
+                    </span>
+                    <h1 className="font-[family-name:var(--font-serif)] text-[clamp(2rem,5vw,3rem)] text-krem leading-tight mb-3">
+                        Menümüz
+                    </h1>
+                    <p className="text-krem/50 text-sm">
+                        40+ çeşit pide, lahmacun, kiremit ve daha fazlası
+                    </p>
                 </div>
+            </div>
 
-                {/* Category filter tabs */}
-                <div className="max-w-lg mx-auto px-4 pb-3">
+            {/* Category filter tabs */}
+            <div className="sticky top-[72px] z-40 bg-background/95 backdrop-blur-sm border-b border-border py-3">
+                <div className="max-w-3xl mx-auto px-4">
                     <nav className="flex gap-2 overflow-x-auto scrollbar-hide">
                         {Object.entries(categoryInfo).map(([key, { emoji, label }]) => (
                             <a
                                 key={key}
                                 href={`#${key}`}
-                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-[var(--warm-bg)] text-[var(--text-muted)] hover:bg-[var(--primary)] hover:text-white transition-colors whitespace-nowrap"
+                                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-warm-bg text-text-muted hover:bg-primary hover:text-white transition-colors whitespace-nowrap"
                             >
                                 <span>{emoji}</span>
                                 <span>{label}</span>
@@ -141,10 +134,10 @@ export default function MenuPage() {
                         ))}
                     </nav>
                 </div>
-            </header>
+            </div>
 
             {/* Menu Content */}
-            <main className="max-w-lg mx-auto px-4 py-6">
+            <main className="max-w-3xl mx-auto px-4 py-6">
                 {Object.entries(menuData).map(([category, items]) => {
                     const info = categoryInfo[category];
                     return (
