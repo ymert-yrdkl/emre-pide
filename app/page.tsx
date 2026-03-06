@@ -1,27 +1,14 @@
 ﻿import Image from "next/image";
+import Link from "next/link";
 
-import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
+import SiteFooter from "./components/SiteFooter";
+import FAQ from "./components/FAQ";
 
 const highlights = [
   { label: "Yıllık deneyim", value: "25+" },
   { label: "Çeşit ürün", value: "40+" },
   { label: "Açık saat", value: "10-22" },
-];
-
-const values = [
-  {
-    title: "Taş Fırın Ritmi",
-    text: "Hamur, iç harç ve pişirme sırası aynı disiplinle ilerler. Lezzet şansa bırakılmaz.",
-  },
-  {
-    title: "Günlük Hazırlık",
-    text: "Ürünler gün içinde hazırlanır, sıcak servis önceliği korunur ve menü sade tutulur.",
-  },
-  {
-    title: "Mahalle Güveni",
-    text: "Düzce merkezde yıllardır bilinen sabit kaliteyi, hızlı servis ve net iletişimle sürdürüyoruz.",
-  },
 ];
 
 const featuredItems = [
@@ -45,12 +32,37 @@ const featuredItems = [
   },
 ];
 
+const previewSections = [
+  {
+    kicker: "Hikayemiz",
+    title: "Taş fırın ritmi, günlük hazırlık, mahalle güveni",
+    text: "25 yılı aşkın tecrübeyle Düzce'de aynı lezzeti sunuyoruz.",
+    href: "/hikaye",
+    icon: "🔥",
+  },
+  {
+    kicker: "Lezzetler",
+    title: "40+ çeşit pide, kiremit, lahmacun",
+    text: "Taş fırında hazırlanan öne çıkan ürünlerimizi keşfedin.",
+    href: "/lezzetler",
+    icon: "🥙",
+  },
+  {
+    kicker: "İletişim",
+    title: "Sipariş, konum ve hızlı ulaşım",
+    text: "Azmimilli, Serhat Sk. — 0380 524 57 01",
+    href: "/iletisim",
+    icon: "📍",
+  },
+];
+
 export default function HomePage() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
 
       <main>
+        {/* Hero */}
         <section className="relative overflow-hidden bg-[#1c120c] py-20 text-white md:py-24">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(214,171,95,0.18),transparent_28%),radial-gradient(circle_at_80%_30%,rgba(183,58,45,0.26),transparent_36%)]" />
           <div className="site-shell relative grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:gap-14">
@@ -62,13 +74,13 @@ export default function HomePage() {
                 <span className="text-[#f4d7a0]">yeni bir başlangıç</span>
               </h1>
               <p className="mt-7 max-w-xl text-[1rem] leading-8 text-white/70 md:text-[1.05rem]">
-                Taş fırında hazırlanan ürünleri, net iletişim bilgilerini ve QR menü erişimini tek bir çatı altında toplayan sade bir ana sayfa kuruyoruz.
+                Taş fırında hazırlanan ürünleri, net iletişim bilgilerini ve QR menü erişimini tek bir çatı altında toplayan sade bir ana sayfa.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
-                <a href="#lezzetler" className="site-btn-primary">
+                <Link href="/lezzetler" className="site-btn-primary">
                   Öne Çıkanlar
-                </a>
+                </Link>
                 <a href="https://menu.emrepide.com.tr" className="site-btn-secondary">
                   QR Menü
                 </a>
@@ -101,53 +113,51 @@ export default function HomePage() {
                   <p className="text-[0.74rem] uppercase tracking-[0.18em] text-[#f4d7a0]">Bugünün vurgusu</p>
                   <h2 className="mt-3 font-[family-name:var(--font-playfair)] text-[1.8rem] text-white">Trabzon Pide</h2>
                   <p className="mt-2 text-sm leading-7 text-white/65">
-                    Menü, iletişim ve işletme güvenini tek ekran akışında toplayan yeni sitenin ana karakteri burada şekilleniyor.
+                    Karadeniz çizgisini taşıyan tereyağı dokunuşlu güçlü klasik.
                   </p>
-                </div>
-              </div>
-
-              <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                <div className="site-card px-6 py-5">
-                  <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary">Konum</p>
-                  <p className="mt-3 font-[family-name:var(--font-playfair)] text-[1.45rem]">Azmimilli</p>
-                  <p className="mt-2 text-sm leading-7 text-text-muted">Serhat Sk. 81020 Düzce</p>
-                </div>
-                <div className="site-card px-6 py-5">
-                  <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary">Telefon</p>
-                  <p className="mt-3 font-[family-name:var(--font-playfair)] text-[1.45rem]">0380 524 57 01</p>
-                  <p className="mt-2 text-sm leading-7 text-text-muted">Hızlı sipariş ve bilgi</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="hikaye" className="section-pad">
-          <div className="site-shell grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.9fr)] lg:items-start">
-            <div className="max-w-2xl">
-              <span className="section-kicker">Yaklaşım</span>
+        {/* Sayfalar Önizleme Kartları */}
+        <section className="section-pad">
+          <div className="site-shell">
+            <div className="max-w-2xl mb-12">
+              <span className="section-kicker">Keşfet</span>
               <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(2.2rem,4vw,3.5rem)] leading-tight">
-                Normal, net ve güven veren
+                Emre Pide&apos;yi
                 <br />
-                <span className="text-primary">bir ana sayfa</span>
+                <span className="text-primary">yakından tanıyın</span>
               </h2>
-              <p className="mt-6 text-[1rem] leading-8 text-text-muted">
-                Bu başlangıç sürümünde ana odak; işletmeyi temiz bir dille tanıtmak, hızlı ulaşım sunmak ve kullanıcıyı karmaşık hissettirmeden QR menüye taşımak.
-              </p>
             </div>
 
-            <div className="grid gap-4">
-              {values.map((item) => (
-                <article key={item.title} className="site-card px-7 py-7 md:px-8">
-                  <h3 className="font-[family-name:var(--font-playfair)] text-[1.6rem]">{item.title}</h3>
-                  <p className="mt-3 text-[0.98rem] leading-8 text-text-muted">{item.text}</p>
-                </article>
+            <div className="grid gap-5 md:grid-cols-3">
+              {previewSections.map((section) => (
+                <Link
+                  key={section.href}
+                  href={section.href}
+                  className="group site-card px-7 py-7 no-underline transition-transform hover:-translate-y-1"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl mb-5">
+                    {section.icon}
+                  </div>
+                  <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary font-bold">{section.kicker}</p>
+                  <h3 className="mt-3 font-[family-name:var(--font-playfair)] text-[1.35rem] leading-snug">{section.title}</h3>
+                  <p className="mt-3 text-[0.92rem] leading-7 text-text-muted">{section.text}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
+                    Devamını Gör
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </span>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="lezzetler" className="section-pad bg-[#241610] text-white">
+        {/* Öne Çıkanlar (kısa) */}
+        <section className="section-pad bg-[#241610] text-white">
           <div className="site-shell">
             <div className="max-w-2xl">
               <span className="section-kicker text-[#f4d7a0]">Öne çıkanlar</span>
@@ -176,46 +186,17 @@ export default function HomePage() {
                 </article>
               ))}
             </div>
-          </div>
-        </section>
 
-        <section id="iletisim" className="section-pad">
-          <div className="site-shell grid gap-8 lg:grid-cols-[minmax(0,1fr)_420px]">
-            <div className="site-card px-8 py-8 md:px-10 md:py-10">
-              <span className="section-kicker">İletişim</span>
-              <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(2.1rem,4vw,3.3rem)] leading-tight">
-                Sipariş, konum ve QR menü
-                <br />
-                <span className="text-primary">aynı akışta</span>
-              </h2>
-              <p className="mt-6 max-w-2xl text-[1rem] leading-8 text-text-muted">
-                Kullanıcı tek ekranda işletmeyi görsün, telefonu arasın veya doğrudan QR menüye geçsin. İlk sürüm için doğru omurga bu.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a href="tel:+903805245701" className="site-btn-primary">
-                  Hemen Ara
-                </a>
-                <a href="https://menu.emrepide.com.tr" className="site-btn-secondary">
-                  QR Menü Aç
-                </a>
-              </div>
+            <div className="mt-10 text-center">
+              <Link href="/lezzetler" className="site-btn-secondary border-white/20 bg-white/8 text-white hover:border-white/40 inline-flex">
+                Tüm Lezzetleri Gör →
+              </Link>
             </div>
-
-            <aside className="grid gap-4">
-              <div className="site-card px-7 py-6">
-                <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary">Adres</p>
-                <p className="mt-3 font-[family-name:var(--font-playfair)] text-[1.5rem]">Azmimilli, Serhat Sk.</p>
-                <p className="mt-2 text-sm leading-7 text-text-muted">81020 Düzce</p>
-              </div>
-              <div className="site-card px-7 py-6">
-                <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary">Saatler</p>
-                <p className="mt-3 font-[family-name:var(--font-playfair)] text-[1.5rem]">Her gün açık</p>
-                <p className="mt-2 text-sm leading-7 text-text-muted">10:00 - 22:00</p>
-              </div>
-            </aside>
           </div>
         </section>
+
+        {/* FAQ + Dönen Pide */}
+        <FAQ />
       </main>
 
       <SiteFooter />
