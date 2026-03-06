@@ -33,7 +33,7 @@ const contactCards = [
     {
         label: "Çalışma Saatleri",
         title: "Her gün açık",
-        detail: "10:00 - 22:00",
+        detail: "11:00 - 00:00",
         icon: "🕐",
         action: null,
     },

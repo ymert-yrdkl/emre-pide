@@ -19,14 +19,18 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://emrepide.com.tr"),
   title: {
     template: "%s | Emre Pide Salonu",
-    default: "Emre Pide Salonu",
+    default: "Emre Pide Salonu — Düzce Taş Fırın Pide",
   },
   description:
-    "Emre Pide Salonu için resmi web sitesi. Düzce'de taş fırında hazırlanan pide çeşitleri, iletişim bilgileri ve QR menü erişimi.",
+    "Emre Pide Salonu resmi web sitesi. Düzce'de taş fırında hazırlanan pide çeşitleri, Trabzon pidesi, lahmacun, kiremit yemekleri, iletişim bilgileri ve QR menü erişimi.",
+  icons: {
+    icon: "/images/logo.svg",
+    apple: "/images/logo.svg",
+  },
   openGraph: {
-    title: "Emre Pide Salonu",
+    title: "Emre Pide Salonu — Düzce Taş Fırın Pide",
     description:
-      "Düzce'de taş fırında hazırlanan pide çeşitleri, iletişim bilgileri ve QR menü erişimi.",
+      "Düzce'de taş fırında hazırlanan pide çeşitleri, Trabzon pidesi, iletişim bilgileri ve QR menü erişimi.",
     url: "https://emrepide.com.tr",
     siteName: "Emre Pide Salonu",
     locale: "tr_TR",

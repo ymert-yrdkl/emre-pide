@@ -5,24 +5,24 @@ import Image from "next/image";
 
 const faqItems = [
     {
-        q: "Sipariş nasıl verebilirim?",
-        a: "Telefonla 0380 524 57 01 numarasından veya WhatsApp üzerinden sipariş verebilirsiniz. Dükkanımıza gelerek yerinde de yiyebilirsiniz.",
+        q: "Pideleriniz nasıl hazırlanıyor?",
+        a: "Pidelerimiz günlük hazırlanan hamurla taş fırında pişirilir. İç harçlar sabah hazırlanır, hamur sipariş ritmine göre açılır ve servis öncesi sıcak şekilde çıkarılır.",
     },
     {
-        q: "Paket servis var mı?",
-        a: "Evet, Düzce merkez içinde paket servisimiz mevcuttur. Sipariş vermek için bizi arayın.",
+        q: "Menünüzde hangi pide çeşitleri var?",
+        a: "Kıymalı, kuşbaşılı, kaşarlı, kavurmalı, Trabzon pidesi, dönerli seçenekler, lahmacun, kiremit çeşitleri, tatlılar ve içecekler dahil geniş bir menü sunuyoruz.",
+    },
+    {
+        q: "Paket servisiniz var mı?",
+        a: "Evet. Düzce merkez ve çevreye paket servis sağlıyoruz. Sipariş için 0380 524 57 01 numarasını arayabilir veya WhatsApp üzerinden bizimle iletişime geçebilirsiniz.",
     },
     {
         q: "Çalışma saatleriniz nedir?",
-        a: "Her gün 10:00 - 22:00 saatleri arasında hizmet vermekteyiz.",
+        a: "Her gün 11:00 - 00:00 saatleri arasında hizmet veriyoruz. Yoğun saatlerde hızlı servis için telefonla ön sipariş vermeniz daha sağlıklı olur. Ayrıca gece 00:00'a kadar hamurum biterse dükkanı kapatıyoruz.",
     },
     {
-        q: "Menüdeki fiyatlar güncel mi?",
-        a: "Evet, QR menümüzdeki fiyatlar sürekli güncellenmektedir. Güncel fiyatlar için menu.emrepide.com.tr adresini ziyaret edebilirsiniz.",
-    },
-    {
-        q: "Özel günler için toplu sipariş alıyor musunuz?",
-        a: "Evet, düğün, nişan, toplantı gibi özel günleriniz için toplu sipariş kabul ediyoruz. Detaylı bilgi için bizi arayın.",
+        q: "Toplu sipariş alıyor musunuz?",
+        a: "Evet. Toplantı, özel gün, iş yemeği veya kalabalık aile siparişleri için toplu üretim yapıyoruz. Bir gün önceden haber vermeniz hazırlık açısından avantaj sağlar.",
     },
 ];
 
@@ -39,22 +39,18 @@ export default function FAQ() {
         const handleScroll = () => {
             const rect = section.getBoundingClientRect();
             const windowH = window.innerHeight;
-
-            // Bölüm viewport'ta ne kadar görünür?
             const sectionTop = rect.top;
 
-            // Bölüm viewport'a girdiğinde progress 0 → 1
-            const start = windowH; // bölümün üstü ekranın altından göründüğünde
-            const end = -rect.height; // bölümün altı ekranın üstünden çıktığında
+            const start = windowH;
+            const end = -rect.height;
             const progress = Math.min(1, Math.max(0, (start - sectionTop) / (start - end)));
 
-            // 0° → 360° arası dönüş
             const rotation = progress * 360;
-            pide.style.transform = `translateX(35%) rotate(${rotation}deg)`;
+            pide.style.transform = `translateX(30%) rotate(${rotation}deg)`;
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
-        handleScroll(); // initial
+        handleScroll();
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
@@ -62,17 +58,37 @@ export default function FAQ() {
     return (
         <section
             ref={sectionRef}
+            id="sss"
             className="section-pad bg-[#241610] text-white overflow-hidden relative"
         >
+            {/* FAQ Schema.org JSON-LD */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        mainEntity: faqItems.map((item) => ({
+                            "@type": "Question",
+                            name: item.q,
+                            acceptedAnswer: {
+                                "@type": "Answer",
+                                text: item.a,
+                            },
+                        })),
+                    }),
+                }}
+            />
+
             <div className="site-shell relative">
-                <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-10 items-start">
+                <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-8 items-center">
                     {/* Sol: FAQ Akordeon */}
                     <div>
                         <span className="section-kicker text-[#f4d7a0]">Sıkça Sorulan Sorular</span>
                         <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(2rem,4vw,3.2rem)] leading-tight text-[#fff6e8] mb-10">
-                            Merak ettikleriniz
+                            Düzce&apos;de taş fırın pide hakkında
                             <br />
-                            <span className="text-[#f4d7a0]">burada</span>
+                            <span className="text-[#f4d7a0]">sıkça sorulan sorular</span>
                         </h2>
 
                         <div className="space-y-3">
@@ -99,7 +115,7 @@ export default function FAQ() {
                                             </span>
                                         </button>
                                         <div
-                                            className={`transition-all duration-300 ease-in-out ${isOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"}`}
+                                            className={`transition-all duration-300 ease-in-out ${isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"}`}
                                         >
                                             <p className="px-6 pb-5 text-[0.9rem] leading-7 text-white/60">
                                                 {item.a}
@@ -111,19 +127,19 @@ export default function FAQ() {
                         </div>
                     </div>
 
-                    {/* Sağ: Dönen Trabzon Pide — yarısı ekran dışında */}
-                    <div className="hidden lg:flex items-center justify-end relative min-h-[500px]">
+                    {/* Sağ: Dönen Trabzon Pide — büyütülmüş, FAQ boyutunda */}
+                    <div className="hidden lg:flex items-center justify-end relative min-h-[700px]">
                         <div
                             ref={pideRef}
-                            className="absolute right-0 w-[600px] h-[600px] transition-none"
-                            style={{ transform: "translateX(35%) rotate(0deg)" }}
+                            className="absolute right-0 w-[750px] h-[750px] transition-none"
+                            style={{ transform: "translateX(30%) rotate(0deg)" }}
                         >
                             <Image
                                 src="/images/menu/trabzon pide.png"
-                                alt="Trabzon Pide"
+                                alt="Düzce taş fırında hazırlanan Trabzon pidesi - Emre Pide Salonu"
                                 fill
-                                className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
-                                sizes="600px"
+                                className="object-contain drop-shadow-[0_25px_80px_rgba(0,0,0,0.6)]"
+                                sizes="750px"
                             />
                         </div>
                     </div>

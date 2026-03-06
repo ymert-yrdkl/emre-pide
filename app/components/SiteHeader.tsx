@@ -7,7 +7,7 @@ import Image from "next/image";
 const navItems = [
   { href: "/hikaye", label: "Hikaye" },
   { href: "/lezzetler", label: "Lezzetler" },
-  { href: "/iletisim", label: "İletişim" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function SiteHeader() {
@@ -17,9 +17,9 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-white/15 bg-[#1c120c]/92 backdrop-blur">
       <div className="site-shell flex min-h-[78px] items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3 no-underline">
-          <Image src="/images/logo.svg" alt="Emre Pide Logo" width={46} height={46} priority />
+          <Image src="/images/logo.svg" alt="Emre Pide Logo" width={56} height={56} priority />
           <div>
-            <span className="block font-[family-name:var(--font-playfair)] text-[1.45rem] text-[#f4d7a0]">
+            <span className="block font-[family-name:var(--font-playfair)] text-[1.6rem] font-bold text-[#f4d7a0]">
               Emre Pide
             </span>
             <span className="block text-[0.72rem] uppercase tracking-[0.18em] text-white/60">
@@ -34,7 +34,7 @@ export default function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-white/72 no-underline transition-colors hover:text-[#f4d7a0]"
+              className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#e8c9a0] no-underline transition-colors hover:text-[#f4d7a0]"
             >
               {item.label}
             </Link>
@@ -42,9 +42,14 @@ export default function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="tel:+903805245701" className="site-btn-primary hidden min-h-[44px] px-5 py-2.5 md:inline-flex">
-            Hemen Ara
-          </a>
+          {/* İletişim — Cezbedici renkli buton */}
+          <Link
+            href="/iletisim"
+            className="hidden md:inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 rounded-full text-[0.82rem] font-bold uppercase tracking-[0.12em] no-underline transition-all duration-300 bg-gradient-to-r from-[#b73a2d] to-[#d4543e] text-white shadow-[0_4px_20px_rgba(183,58,45,0.4)] hover:shadow-[0_6px_28px_rgba(183,58,45,0.55)] hover:-translate-y-0.5"
+          >
+            <span>📞</span>
+            İletişim
+          </Link>
 
           {/* Mobile Hamburger */}
           <button
@@ -61,7 +66,7 @@ export default function SiteHeader() {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out ${mobileOpen ? "max-h-64" : "max-h-0"}`}
+        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out ${mobileOpen ? "max-h-80" : "max-h-0"}`}
       >
         <nav className="site-shell flex flex-col gap-1 pb-5">
           {navItems.map((item) => (
@@ -69,17 +74,19 @@ export default function SiteHeader() {
               key={item.href}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className="rounded-xl px-4 py-3 text-[0.88rem] font-semibold text-white/80 no-underline transition-colors hover:bg-white/8 hover:text-[#f4d7a0]"
+              className="rounded-xl px-4 py-3 text-[0.88rem] font-semibold text-[#e8c9a0] no-underline transition-colors hover:bg-white/8 hover:text-[#f4d7a0]"
             >
               {item.label}
             </Link>
           ))}
-          <a
-            href="tel:+903805245701"
-            className="site-btn-primary mt-2 min-h-[44px] px-5 py-2.5 text-center"
+          <Link
+            href="/iletisim"
+            onClick={() => setMobileOpen(false)}
+            className="mt-2 flex items-center justify-center gap-2 min-h-[44px] px-5 py-2.5 rounded-full text-[0.82rem] font-bold uppercase tracking-[0.12em] no-underline bg-gradient-to-r from-[#b73a2d] to-[#d4543e] text-white"
           >
-            Hemen Ara
-          </a>
+            <span>📞</span>
+            İletişim
+          </Link>
         </nav>
       </div>
     </header>

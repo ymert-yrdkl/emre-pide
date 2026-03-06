@@ -8,7 +8,7 @@ import FAQ from "./components/FAQ";
 const highlights = [
   { label: "Yıllık deneyim", value: "25+" },
   { label: "Çeşit ürün", value: "40+" },
-  { label: "Açık saat", value: "10-22" },
+  { label: "Açık saat", value: "11-00" },
 ];
 
 const featuredItems = [
@@ -32,27 +32,18 @@ const featuredItems = [
   },
 ];
 
-const previewSections = [
+const blogPreview = [
   {
-    kicker: "Hikayemiz",
-    title: "Taş fırın ritmi, günlük hazırlık, mahalle güveni",
-    text: "25 yılı aşkın tecrübeyle Düzce'de aynı lezzeti sunuyoruz.",
-    href: "/hikaye",
-    icon: "🔥",
+    title: "Taş Fırında Pide Nasıl Yapılır?",
+    excerpt: "Taş fırında pide yapımının sırrı hamurun kıvamında ve fırının sıcaklığında gizlidir.",
+    date: "5 Mart 2026",
+    readTime: "5 dk",
   },
   {
-    kicker: "Lezzetler",
-    title: "40+ çeşit pide, kiremit, lahmacun",
-    text: "Taş fırında hazırlanan öne çıkan ürünlerimizi keşfedin.",
-    href: "/lezzetler",
-    icon: "🥙",
-  },
-  {
-    kicker: "İletişim",
-    title: "Sipariş, konum ve hızlı ulaşım",
-    text: "Azmimilli, Serhat Sk. — 0380 524 57 01",
-    href: "/iletisim",
-    icon: "📍",
+    title: "Trabzon Pidesi Nedir?",
+    excerpt: "Karadeniz mutfağının en güçlü temsilcisi olan Trabzon pidesi hakkında her şey.",
+    date: "1 Mart 2026",
+    readTime: "4 dk",
   },
 ];
 
@@ -74,7 +65,7 @@ export default function HomePage() {
                 <span className="text-[#f4d7a0]">yeni bir başlangıç</span>
               </h1>
               <p className="mt-7 max-w-xl text-[1rem] leading-8 text-white/70 md:text-[1.05rem]">
-                Taş fırında hazırlanan ürünleri, net iletişim bilgilerini ve QR menü erişimini tek bir çatı altında toplayan sade bir ana sayfa.
+                Düzce Azmimilli&apos;de 25 yılı aşkın taş fırın geleneğiyle hazırlanan pideler, lahmacunlar ve kiremit yemekleri. Sıcak, taze ve dürüst lezzet.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
@@ -121,42 +112,45 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Sayfalar Önizleme Kartları */}
+        {/* Hakkımızda Bölümü */}
         <section className="section-pad">
-          <div className="site-shell">
-            <div className="max-w-2xl mb-12">
-              <span className="section-kicker">Keşfet</span>
+          <div className="site-shell grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center">
+            <div>
+              <span className="section-kicker">Hakkımızda</span>
               <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(2.2rem,4vw,3.5rem)] leading-tight">
-                Emre Pide&apos;yi
+                25 yılı aşkın
                 <br />
-                <span className="text-primary">yakından tanıyın</span>
+                <span className="text-primary">taş fırın geleneği</span>
               </h2>
+              <p className="mt-6 text-[1rem] leading-8 text-text-muted">
+                Emre Pide Salonu, Düzce Azmimilli&apos;de taş fırında hazırlanan pideler, lahmacunlar ve kiremit yemekleriyle yıllardır aynı lezzeti sunuyor. Günlük hazırlanan hamur, sabah hazırlanan iç harçlar ve taş fırının eşsiz pişirme yöntemi ile her pidemiz özenle hazırlanır.
+              </p>
+              <Link href="/hikaye" className="site-btn-primary mt-8 inline-flex">
+                Hikayemizi Oku
+              </Link>
             </div>
-
-            <div className="grid gap-5 md:grid-cols-3">
-              {previewSections.map((section) => (
-                <Link
-                  key={section.href}
-                  href={section.href}
-                  className="group site-card px-7 py-7 no-underline transition-transform hover:-translate-y-1"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl mb-5">
-                    {section.icon}
-                  </div>
-                  <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary font-bold">{section.kicker}</p>
-                  <h3 className="mt-3 font-[family-name:var(--font-playfair)] text-[1.35rem] leading-snug">{section.title}</h3>
-                  <p className="mt-3 text-[0.92rem] leading-7 text-text-muted">{section.text}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
-                    Devamını Gör
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  </span>
-                </Link>
-              ))}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="site-card px-6 py-6 text-center">
+                <p className="font-[family-name:var(--font-playfair)] text-[2.2rem] text-primary">25+</p>
+                <p className="mt-1 text-sm text-text-muted">Yıllık deneyim</p>
+              </div>
+              <div className="site-card px-6 py-6 text-center">
+                <p className="font-[family-name:var(--font-playfair)] text-[2.2rem] text-primary">40+</p>
+                <p className="mt-1 text-sm text-text-muted">Çeşit ürün</p>
+              </div>
+              <div className="site-card px-6 py-6 text-center">
+                <p className="font-[family-name:var(--font-playfair)] text-[2.2rem] text-primary">🔥</p>
+                <p className="mt-1 text-sm text-text-muted">Taş fırın</p>
+              </div>
+              <div className="site-card px-6 py-6 text-center">
+                <p className="font-[family-name:var(--font-playfair)] text-[2.2rem] text-primary">📍</p>
+                <p className="mt-1 text-sm text-text-muted">Düzce merkez</p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Öne Çıkanlar (kısa) */}
+        {/* Öne Çıkanlar */}
         <section className="section-pad bg-[#241610] text-white">
           <div className="site-shell">
             <div className="max-w-2xl">
@@ -190,6 +184,48 @@ export default function HomePage() {
             <div className="mt-10 text-center">
               <Link href="/lezzetler" className="site-btn-secondary border-white/20 bg-white/8 text-white hover:border-white/40 inline-flex">
                 Tüm Lezzetleri Gör →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Blog Önizleme */}
+        <section className="section-pad">
+          <div className="site-shell">
+            <div className="max-w-2xl mb-12">
+              <span className="section-kicker">Blog</span>
+              <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(2.2rem,4vw,3.5rem)] leading-tight">
+                Taş fırın lezzetleri
+                <br />
+                <span className="text-primary">ve pide kültürü</span>
+              </h2>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              {blogPreview.map((post) => (
+                <Link
+                  key={post.title}
+                  href="/blog"
+                  className="group site-card px-7 py-7 no-underline transition-transform hover:-translate-y-1"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-[0.75rem] text-text-muted">{post.date}</span>
+                    <span className="text-[0.75rem] text-text-muted">·</span>
+                    <span className="text-[0.75rem] text-text-muted">{post.readTime} okuma</span>
+                  </div>
+                  <h3 className="font-[family-name:var(--font-playfair)] text-[1.35rem] leading-snug">{post.title}</h3>
+                  <p className="mt-3 text-[0.92rem] leading-7 text-text-muted">{post.excerpt}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
+                    Devamını Oku
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-8 text-center">
+              <Link href="/blog" className="site-btn-secondary inline-flex">
+                Tüm Yazıları Gör →
               </Link>
             </div>
           </div>

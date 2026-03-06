@@ -12,7 +12,7 @@
         <div className="text-sm leading-7 text-white/55 md:text-right">
           <p>Azmimilli, Serhat Sk. 81020 Düzce</p>
           <p>0380 524 57 01</p>
-          <p>Her gün 10:00 - 22:00</p>
+          <p>Her gün 11:00 - 00:00</p>
         </div>
       </div>
     </footer>
