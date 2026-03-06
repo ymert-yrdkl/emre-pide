@@ -16,14 +16,21 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://emrepide.com.tr"),
   title: {
-    template: "%s | Emre Pide QR Menü",
-    default: "Emre Pide QR Menü",
+    template: "%s | Emre Pide Salonu",
+    default: "Emre Pide Salonu",
   },
   description:
-    "Emre Pide Salonu QR menüsü - pideler, lahmacun, tatlılar, kiremit ürünleri ve içecekler.",
-  alternates: {
-    canonical: "https://menu.emrepide.com.tr",
+    "Emre Pide Salonu için resmi web sitesi. Düzce'de taş fırında hazırlanan pide çeşitleri, iletişim bilgileri ve QR menü erişimi.",
+  openGraph: {
+    title: "Emre Pide Salonu",
+    description:
+      "Düzce'de taş fırında hazırlanan pide çeşitleri, iletişim bilgileri ve QR menü erişimi.",
+    url: "https://emrepide.com.tr",
+    siteName: "Emre Pide Salonu",
+    locale: "tr_TR",
+    type: "website",
   },
   robots: {
     index: true,
