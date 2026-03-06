@@ -30,32 +30,36 @@ export default function QRMenuClient() {
         </header>
 
         {mode === "home" && (
-          <section className="mx-auto grid max-w-[720px] grid-cols-1 gap-4 sm:grid-cols-2">
+          <section className="mx-auto grid w-full max-w-[430px] grid-cols-1 gap-4">
             <button
               type="button"
               onClick={() => setMode("menu")}
-              className="aspect-[1.618/1] rounded-2xl border border-[#e8ddcf] bg-white p-6 text-left shadow-sm transition hover:-translate-y-0.5"
+              className="aspect-[1.618/1] rounded-2xl border border-[#e8ddcf] bg-white p-6 text-center shadow-sm transition hover:-translate-y-0.5"
             >
-              <p className="mb-2 text-2xl">📋</p>
-              <h2 className="text-2xl font-semibold">Menü</h2>
-              <p className="mt-1 text-sm text-[#6f5849]">{totalCount} ürün - Sadece yazı ve fiyat</p>
+              <div className="flex h-full flex-col items-center justify-center">
+                <p className="mb-2 text-2xl">📋</p>
+                <h2 className="text-2xl font-semibold">Menü</h2>
+                <p className="mt-1 text-sm text-[#6f5849]">{totalCount} ürün - Sadece yazı ve fiyat</p>
+              </div>
             </button>
 
             <button
               type="button"
               onClick={() => setMode("contact")}
-              className="aspect-[1.618/1] rounded-2xl border border-[#e8ddcf] bg-white p-6 text-left shadow-sm transition hover:-translate-y-0.5"
+              className="aspect-[1.618/1] rounded-2xl border border-[#e8ddcf] bg-white p-6 text-center shadow-sm transition hover:-translate-y-0.5"
             >
-              <p className="mb-2 text-2xl">📞</p>
-              <h2 className="text-2xl font-semibold">İletişim</h2>
-              <p className="mt-1 text-sm text-[#6f5849]">Hemen ara ve konuma git</p>
+              <div className="flex h-full flex-col items-center justify-center">
+                <p className="mb-2 text-2xl">📞</p>
+                <h2 className="text-2xl font-semibold">İletişim</h2>
+                <p className="mt-1 text-sm text-[#6f5849]">Hemen ara ve konuma git</p>
+              </div>
             </button>
           </section>
         )}
 
         {mode === "menu" && (
           <section className="mx-auto w-full max-w-[700px]">
-            <div className="mb-5 flex items-center justify-between">
+            <div className="mb-6 flex flex-col items-center gap-3 text-center">
               <h2 className="font-[family-name:var(--font-playfair)] text-4xl">Menü</h2>
               <button
                 type="button"
@@ -72,7 +76,7 @@ export default function QRMenuClient() {
                 const items = menuData[key];
 
                 return (
-                  <section key={key}>
+                  <section key={key} className="text-center">
                     <h3 className="mb-3 text-2xl font-semibold">
                       {info.emoji} {info.label}
                     </h3>
@@ -81,7 +85,7 @@ export default function QRMenuClient() {
                       {items.map((item) => (
                         <li
                           key={`${key}-${item.name}`}
-                          className="flex items-center justify-between rounded-xl border border-[#e8ddcf] bg-white px-4 py-3"
+                          className="mx-auto flex w-full max-w-[620px] items-center justify-between rounded-xl border border-[#e8ddcf] bg-white px-4 py-3"
                         >
                           <span className="flex items-center gap-2 text-[1rem]">
                             <span>{info.itemIcon}</span>
@@ -102,7 +106,7 @@ export default function QRMenuClient() {
 
         {mode === "contact" && (
           <section className="mx-auto w-full max-w-[700px]">
-            <div className="mb-5 flex items-center justify-between">
+            <div className="mb-6 flex flex-col items-center gap-3 text-center">
               <h2 className="font-[family-name:var(--font-playfair)] text-4xl">İletişim</h2>
               <button
                 type="button"
@@ -113,10 +117,10 @@ export default function QRMenuClient() {
               </button>
             </div>
 
-            <div className="space-y-3">
+            <div className="mx-auto flex w-full max-w-[620px] flex-col items-center gap-3">
               <a
                 href="tel:+903805245701"
-                className="flex items-center justify-between rounded-2xl border border-[#e8ddcf] bg-white px-5 py-4 text-lg font-semibold no-underline"
+                className="flex w-full flex-col items-center gap-1 rounded-2xl border border-[#e8ddcf] bg-white px-5 py-4 text-lg font-semibold no-underline sm:flex-row sm:justify-between"
               >
                 <span>📞 Hemen Ara</span>
                 <span>0380 524 57 01</span>
@@ -126,7 +130,7 @@ export default function QRMenuClient() {
                 href="https://maps.google.com/?q=Azmimilli,+Serhat+Sk.,+81020+Düzce"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between rounded-2xl border border-[#e8ddcf] bg-white px-5 py-4 text-lg font-semibold no-underline"
+                className="flex w-full flex-col items-center gap-1 rounded-2xl border border-[#e8ddcf] bg-white px-5 py-4 text-lg font-semibold no-underline sm:flex-row sm:justify-between"
               >
                 <span>📍 Dükkan Konumu</span>
                 <span>Haritada Aç</span>
