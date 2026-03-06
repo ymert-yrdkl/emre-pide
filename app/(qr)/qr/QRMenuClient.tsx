@@ -60,8 +60,8 @@ export default function QRMenuClient() {
               <div className="absolute -right-14 -top-14 h-40 w-40 rounded-full bg-[#b74133]/8" />
               <div className="absolute -bottom-14 -left-14 h-40 w-40 rounded-full bg-[#d8af62]/10" />
 
-              <div className="relative flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3">
+              <div className="relative flex items-center justify-between gap-[5px]">
+                <div className="flex items-center gap-[5px]">
                   <Image src="/images/logo.svg" alt="Emre Pide" width={50} height={50} priority className="rounded-md" />
                   <div className="leading-tight">
                     <p className="font-[family-name:var(--font-playfair)] text-3xl">Emre Pide</p>
@@ -170,7 +170,7 @@ export default function QRMenuClient() {
                       {group.items.map((item) => (
                         <li
                           key={`${group.key}-${item.name}`}
-                          className="mx-auto grid w-full max-w-[760px] grid-cols-[78px_minmax(0,3fr)_auto] items-center gap-3 rounded-2xl border border-[#e7d9c8] bg-white p-3 shadow-sm"
+                          className="mx-auto grid w-full max-w-[760px] grid-cols-[78px_minmax(0,3fr)_auto] items-center gap-[5px] rounded-2xl border border-[#e7d9c8] bg-white p-3 shadow-sm"
                         >
                           <div className="relative h-[66px] w-[78px] overflow-hidden rounded-xl bg-[#efe3d4]">
                             {item.image ? (
@@ -180,7 +180,7 @@ export default function QRMenuClient() {
                             )}
                           </div>
 
-                          <span className="flex items-center gap-2 text-left text-[1rem] leading-snug">
+                          <span className="flex items-center gap-[5px] text-left text-[1rem] leading-snug">
                             <span>{group.info.itemIcon}</span>
                             <span>{item.name}</span>
                           </span>
@@ -213,7 +213,7 @@ export default function QRMenuClient() {
               <div className="mx-auto flex w-full max-w-[680px] flex-col gap-3">
                 <a
                   href={phoneHref}
-                  className="flex w-full flex-col items-center gap-1 rounded-2xl border border-[#e7d9c8] bg-white px-5 py-4 text-lg font-semibold no-underline shadow-sm sm:flex-row sm:justify-between"
+                  className="flex w-full flex-col items-center gap-[5px] rounded-2xl border border-[#e7d9c8] bg-white px-5 py-4 text-lg font-semibold no-underline shadow-sm sm:flex-row sm:justify-between"
                 >
                   <span>📞 Hemen Ara</span>
                   <span>{phoneDisplay}</span>
@@ -223,7 +223,7 @@ export default function QRMenuClient() {
                   href={mapHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex w-full flex-col items-center gap-1 rounded-2xl border border-[#e7d9c8] bg-white px-5 py-4 text-lg font-semibold no-underline shadow-sm sm:flex-row sm:justify-between"
+                  className="flex w-full flex-col items-center gap-[5px] rounded-2xl border border-[#e7d9c8] bg-white px-5 py-4 text-lg font-semibold no-underline shadow-sm sm:flex-row sm:justify-between"
                 >
                   <span>📍 Dukkan Konumu</span>
                   <span>Haritada Ac</span>
@@ -236,3 +236,5 @@ export default function QRMenuClient() {
     </div>
   );
 }
+
+
