@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function SssPage() {
   return (
     <div className="overflow-x-hidden bg-background">
-      <section className="bg-koyu pt-32 pb-18 px-6 lg:px-10">
+      <section className="bg-koyu pt-32 pb-20 px-6 lg:px-10">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-gold inline-block mb-3">
             SSS

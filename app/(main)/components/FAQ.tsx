@@ -57,10 +57,10 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="sss" className="py-24 px-6 lg:px-10 bg-background scroll-mt-20 overflow-x-clip">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-primary inline-block mb-3">
+    <section ref={sectionRef} id="sss" className="bg-background px-6 py-24 scroll-mt-20 overflow-x-hidden lg:px-10">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 text-center">
+          <span className="mb-3 inline-block text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-primary">
             Merak Edilenler
           </span>
           <h2 className="font-[family-name:var(--font-serif)] text-[clamp(2rem,3.5vw,2.8rem)] leading-tight">
@@ -68,56 +68,65 @@ export default function FAQ() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-12 lg:gap-20 items-start">
-          <div className="border-t border-border max-w-2xl">
-            {faqData.map((item, index) => (
-              <div key={item.question} className="accordion-item">
-                <button
-                  className="accordion-header"
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  aria-expanded={openIndex === index}
-                >
-                  <span>{item.question}</span>
-                  <svg
-                    className={`accordion-arrow ${openIndex === index ? "open" : ""}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_460px]">
+          <div className="rounded-[32px] border border-border bg-white p-6 shadow-sm md:p-8 lg:p-10">
+            <div className="border-t border-border">
+              {faqData.map((item, index) => (
+                <div key={item.question} className="accordion-item">
+                  <button
+                    className="accordion-header"
+                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                    aria-expanded={openIndex === index}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                <div className={`accordion-body ${openIndex === index ? "open" : ""}`}>
-                  <p>{item.answer}</p>
+                    <span>{item.question}</span>
+                    <svg
+                      className={`accordion-arrow ${openIndex === index ? "open" : ""}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                  <div className={`accordion-body ${openIndex === index ? "open" : ""}`}>
+                    <p>{item.answer}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          <div className="hidden lg:block sticky top-28">
-            <div className="relative h-[420px] overflow-visible">
-              <div className="absolute inset-y-4 right-0 w-[210px] rounded-l-full border border-gold/25 border-r-0" />
-              <div className="absolute inset-y-12 right-10 w-[140px] rounded-l-full border border-gold/10 border-r-0" />
-              <div
-                className="absolute top-1/2 right-[-150px] h-[300px] w-[300px]"
-                style={{
-                  transform: `translateY(-50%) rotate(${rotation}deg)`,
-                  transition: "transform 0.12s linear",
-                }}
-              >
-                <Image
-                  src="/images/menu/trabzon pide.png"
-                  alt="Trabzon Pide"
-                  fill
-                  className="object-contain drop-shadow-[0_20px_40px_rgba(25,12,6,0.25)]"
-                  sizes="300px"
-                />
-              </div>
+          <div className="relative hidden min-h-[520px] overflow-hidden rounded-[32px] border border-gold/15 bg-koyu lg:block">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(192,57,43,0.18),transparent_38%),radial-gradient(circle_at_78%_75%,rgba(212,168,67,0.14),transparent_45%)]" />
+            <div className="absolute inset-x-8 top-8">
+              <span className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-gold">
+                Öne çıkan cevaplar
+              </span>
+              <p className="mt-4 max-w-xs text-sm leading-7 text-krem/65">
+                Paket servis, çalışma saatleri ve toplu sipariş gibi en kritik sorular bu ekranda hızlıca cevaplanır.
+              </p>
+            </div>
+            <div className="absolute inset-y-10 right-0 w-[230px] rounded-l-full border border-gold/25 border-r-0" />
+            <div className="absolute inset-y-20 right-8 w-[160px] rounded-l-full border border-gold/10 border-r-0" />
+            <div
+              className="absolute bottom-[-30px] right-[-90px] h-[360px] w-[360px]"
+              style={{
+                transform: `rotate(${rotation}deg)`,
+                transition: "transform 0.12s linear",
+              }}
+            >
+              <Image
+                src="/images/menu/trabzon pide.png"
+                alt="Trabzon Pide"
+                fill
+                className="object-contain drop-shadow-[0_28px_50px_rgba(0,0,0,0.35)]"
+                sizes="360px"
+              />
             </div>
           </div>
         </div>

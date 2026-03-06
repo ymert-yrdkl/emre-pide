@@ -1,7 +1,7 @@
 ﻿export default function AboutContent() {
   return (
     <section className="py-24 px-6 lg:px-10 bg-background">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div className="relative">
           <div className="bg-koyu rounded-lg p-10 text-krem relative overflow-hidden">
             <span className="inline-block bg-primary text-white text-[0.7rem] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-sm mb-5">

@@ -35,7 +35,9 @@ export default function Footer() {
             <ul className="space-y-2 list-none">
               {[
                 { href: "/", label: "Ana Sayfa" },
-                { href: "/menu", label: "Menümüz" },
+                { href: "/hakkimizda", label: "Hakkımızda" },
+                { href: "/menu", label: "Menü" },
+                { href: "/sss", label: "SSS" },
                 { href: "/iletisim", label: "İletişim" },
               ].map((link) => (
                 <li key={link.href}>
@@ -82,11 +84,10 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-gold/10 text-center">
           <p className="text-xs text-krem/35">
-            © 2026 <span className="text-gold">Emre Pide Salonu</span> — Tüm hakları saklıdır.
+            © 2026 <span className="text-gold">Emre Pide Salonu</span> - Tüm hakları saklıdır.
           </p>
         </div>
       </div>
     </footer>
   );
 }
-
