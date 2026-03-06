@@ -1,9 +1,9 @@
 ﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Ä°letiÅŸim",
+    title: "İletişim",
     description:
-        "Emre Pide Salonu iletiÅŸim bilgileri â€” Adres, telefon, e-posta ve Ã§alÄ±ÅŸma saatleri. DÃ¼zce'de taÅŸ fÄ±rÄ±nda pide.",
+        "Emre Pide Salonu iletişim bilgileri - Adres, telefon, e-posta ve çalışma saatleri. Düzce'de taş fırında pide.",
 };
 
 export default function IletisimPage() {
@@ -13,14 +13,14 @@ export default function IletisimPage() {
             <section className="bg-koyu pt-32 pb-16 px-[5%]">
                 <div className="max-w-[900px] mx-auto text-center">
                     <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-gold inline-block mb-3">
-                        Bize UlaÅŸÄ±n
+                        Bize Ulaşın
                     </span>
                     <h1 className="font-[family-name:var(--font-serif)] text-[clamp(2rem,5vw,3.5rem)] text-krem leading-tight mb-4">
-                        Her Zaman <em className="italic text-primary">YanÄ±nÄ±zdayÄ±z</em>
+                        Her Zaman <em className="italic text-primary">Yanınızdayız</em>
                     </h1>
                     <p className="text-krem/60 text-base font-light max-w-md mx-auto">
-                        Rezervasyon, sipariÅŸ veya bilgi almak iÃ§in bizimle iletiÅŸime
-                        geÃ§ebilirsiniz.
+                        Rezervasyon, sipariş veya bilgi almak için bizimle iletişime
+                        geçebilirsiniz.
                     </p>
                 </div>
             </section>
@@ -31,13 +31,13 @@ export default function IletisimPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
                         {/* Adres */}
                         <a
-                            href="https://maps.google.com/?q=Azmimilli,+Serhat+Sk.,+81020+DÃ¼zce"
+                            href="https://maps.google.com/?q=Azmimilli,+Serhat+Sk.,+81020+Duzce"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-start gap-4 bg-card-bg rounded-2xl p-6 border border-border hover:shadow-lg hover:border-primary transition-all group no-underline"
                         >
                             <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform flex-shrink-0">
-                                ğŸ“
+                                📍
                             </div>
                             <div className="flex-1">
                                 <div className="font-semibold text-foreground mb-1 text-base">
@@ -46,7 +46,7 @@ export default function IletisimPage() {
                                 <div className="text-sm text-text-muted leading-relaxed">
                                     Azmimilli, Serhat Sk.
                                     <br />
-                                    81020 DÃ¼zce
+                                    81020 Düzce
                                 </div>
                             </div>
                             <svg
@@ -70,7 +70,7 @@ export default function IletisimPage() {
                             className="flex items-center gap-4 bg-card-bg rounded-2xl p-6 border border-border hover:shadow-lg hover:border-primary transition-all group no-underline"
                         >
                             <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform flex-shrink-0">
-                                ğŸ“
+                                📞
                             </div>
                             <div className="flex-1">
                                 <div className="font-semibold text-foreground text-base">
@@ -99,7 +99,7 @@ export default function IletisimPage() {
                             className="flex items-center gap-4 bg-card-bg rounded-2xl p-6 border border-border hover:shadow-lg hover:border-gold transition-all group no-underline"
                         >
                             <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform flex-shrink-0">
-                                âœ‰ï¸
+                                ✉️
                             </div>
                             <div className="flex-1">
                                 <div className="font-semibold text-foreground text-base">
@@ -124,14 +124,14 @@ export default function IletisimPage() {
                             </svg>
                         </a>
 
-                        {/* Ã‡alÄ±ÅŸma Saatleri */}
+                        {/* Çalışma Saatleri */}
                         <div className="bg-card-bg rounded-2xl p-6 border border-border">
                             <div className="flex items-center gap-4 mb-5">
                                 <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-2xl flex-shrink-0">
-                                    ğŸ•
+                                    🕐
                                 </div>
                                 <div className="font-semibold text-foreground text-base">
-                                    Ã‡alÄ±ÅŸma Saatleri
+                                    Çalışma Saatleri
                                 </div>
                             </div>
                             <div className="space-y-3 text-sm">
@@ -157,7 +157,7 @@ export default function IletisimPage() {
                             href="tel:+903805245701"
                             className="flex-1 flex items-center justify-center gap-2 bg-primary text-white font-semibold px-6 py-4 rounded-2xl hover:bg-primary-dark transition-colors text-base no-underline"
                         >
-                            <span className="text-xl">ğŸ“</span>
+                            <span className="text-xl">📞</span>
                             Hemen Ara
                         </a>
                         <a
@@ -166,7 +166,7 @@ export default function IletisimPage() {
                             rel="noopener noreferrer"
                             className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold px-6 py-4 rounded-2xl hover:bg-[#1ea952] transition-colors text-base no-underline"
                         >
-                            <span className="text-xl">ğŸ’¬</span>
+                            <span className="text-xl">💬</span>
                             WhatsApp ile Yaz
                         </a>
                     </div>
@@ -200,7 +200,7 @@ export default function IletisimPage() {
                         address: {
                             "@type": "PostalAddress",
                             streetAddress: "Azmimilli, Serhat Sk.",
-                            addressLocality: "DÃ¼zce",
+                            addressLocality: "Düzce",
                             postalCode: "81020",
                             addressCountry: "TR",
                         },
