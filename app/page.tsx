@@ -27,7 +27,7 @@ const featuredItems = [
   {
     name: "Kıymalı Pide",
     price: "150 TL",
-    text: "Emre Pide&apos;nin en bilinen ürünlerinden biri; net, tanıdık ve güçlü tat.",
+    text: "Emre Pide'nin en bilinen ürünlerinden biri; net, tanıdık ve güçlü tat.",
     image: "/images/menu/kıymalı.png",
   },
 ];
