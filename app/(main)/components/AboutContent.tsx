@@ -1,45 +1,45 @@
 ﻿export default function AboutContent() {
   return (
-    <section className="py-24 px-6 lg:px-10 bg-background">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div className="relative">
-          <div className="bg-koyu rounded-lg p-10 text-krem relative overflow-hidden">
-            <span className="inline-block bg-primary text-white text-[0.7rem] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-sm mb-5">
+    <section className="bg-background px-6 py-24 lg:px-10">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(320px,0.95fr)_minmax(0,1.05fr)] lg:items-center">
+        <div className="relative mx-auto w-full max-w-[520px] lg:mx-0">
+          <div className="relative overflow-hidden rounded-[36px] bg-koyu p-8 text-krem md:p-10">
+            <span className="mb-5 inline-flex rounded-full bg-primary px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.15em] text-white">
               Taş Fırın
             </span>
-            <h3 className="font-[family-name:var(--font-serif)] text-[1.6rem] text-gold mb-4 italic leading-snug">
+            <h3 className="font-[family-name:var(--font-serif)] text-[1.8rem] italic leading-snug text-gold md:text-[2rem]">
               &quot;Pide bir sanattır,
               <br />
               her dilim bir hikaye.&quot;
             </h3>
-            <p className="text-sm leading-relaxed text-krem/70">
+            <p className="mt-5 text-[0.98rem] leading-8 text-krem/72">
               1999 yılından bu yana aynı tarif, aynı özen ve aynı taş fırın ritmi ile çalışıyoruz. Bizim için lezzet, günlük disiplinin sonucudur.
             </p>
-            <span className="absolute text-[8rem] right-[-1rem] bottom-[-1rem] opacity-10">🥙</span>
+            <span className="absolute bottom-0 right-3 text-[7rem] opacity-10">🥙</span>
           </div>
-          <div className="absolute -bottom-4 -right-4 bg-primary text-white px-6 py-4 rounded-lg text-center shadow-xl z-10">
+          <div className="absolute bottom-4 right-4 rounded-[24px] bg-primary px-6 py-5 text-center text-white shadow-xl md:bottom-5 md:right-5">
             <strong className="block font-[family-name:var(--font-serif)] text-2xl">1999</strong>
-            <span className="text-[0.7rem] tracking-[0.1em] uppercase opacity-85">Kuruluş Yılı</span>
+            <span className="text-[0.72rem] uppercase tracking-[0.1em] opacity-85">Kuruluş Yılı</span>
           </div>
         </div>
 
-        <div>
-          <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-primary block mb-4">
+        <div className="max-w-2xl">
+          <span className="mb-4 block text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-primary">
             Biz Kimiz
           </span>
-          <h2 className="font-[family-name:var(--font-serif)] text-[clamp(2rem,3.5vw,2.8rem)] leading-tight mb-6">
+          <h2 className="font-[family-name:var(--font-serif)] text-[clamp(2.2rem,4vw,3.2rem)] leading-tight text-foreground">
             Gelenekten gelen
             <br />
             <em className="italic text-primary">özgün lezzet</em>
           </h2>
-          <p className="text-[0.95rem] leading-[1.9] text-text-muted mb-4">
+          <p className="mt-6 text-[1rem] leading-8 text-text-muted">
             Karadeniz usulü hamur işlerinin inceliğini, Düzce&apos;de sevilen güçlü iç harçlarla birleştiriyoruz. Her ürün, taş fırında kontrollü ısı ile pişiyor.
           </p>
-          <p className="text-[0.95rem] leading-[1.9] text-text-muted mb-8">
-            Sabah hazırlanan taze malzemeler, gün boyu sıcak kalan taş fırın ve yıllardır değişmeyen iş disiplini sayesinde Emre Pide Salonu, mahalle klasiği olmayı sürdürüyor.
+          <p className="mt-4 text-[1rem] leading-8 text-text-muted">
+            Sabah hazırlanan taze malzemeler, gün boyu sıcak kalan taş fırın ve yıllardır değişmeyen iş disiplini sayesinde Emre Pide Salonu mahalle klasiği olmayı sürdürüyor.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {[
               {
                 title: "Günlük Hazırlık",
@@ -54,9 +54,9 @@
                 text: "Uzun yıllardır aynı bölgede tanınan bir üretim disiplini var.",
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
-                <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-text-muted leading-7">{item.text}</p>
+              <div key={item.title} className="rounded-[24px] border border-border bg-white p-6 shadow-sm md:p-7">
+                <h3 className="mb-3 font-semibold text-foreground">{item.title}</h3>
+                <p className="text-[0.95rem] leading-8 text-text-muted">{item.text}</p>
               </div>
             ))}
           </div>
