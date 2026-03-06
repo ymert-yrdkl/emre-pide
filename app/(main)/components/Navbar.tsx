@@ -15,9 +15,9 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { href: "/#hakkimizda", label: "Hakkımızda" },
+    { href: "/hakkimizda", label: "Hakkımızda" },
     { href: "/menu", label: "Menü" },
-    { href: "/#sss", label: "SSS" },
+    { href: "/sss", label: "SSS" },
     { href: "/iletisim", label: "İletişim" },
   ];
 
@@ -100,3 +100,4 @@ export default function Navbar() {
     </>
   );
 }
+

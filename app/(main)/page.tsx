@@ -1,7 +1,7 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 
-import FAQ from "./components/FAQ";
+import GallerySection from "./components/GallerySection";
 import Marquee from "./components/Marquee";
 
 const featuredMenu = [
@@ -49,65 +49,41 @@ const featuredMenu = [
   },
 ];
 
-const galleryImages = [
+const quickLinks = [
   {
-    src: "/images/menu/trabzon pide.png",
-    alt: "Trabzon pide",
-    className: "md:col-span-5 md:row-span-2",
+    icon: "🧱",
+    title: "Hakkımızda",
+    desc: "Taş fırın geleneğimiz, üretim anlayışımız ve hikayemiz.",
+    href: "/hakkimizda",
   },
   {
-    src: "/images/menu/kavurmalı pide.png",
-    alt: "Kavurmalı pide",
-    className: "md:col-span-4",
+    icon: "📋",
+    title: "Menü",
+    desc: "Tüm pide, lahmacun, kiremit, tatlı ve içecek çeşitleri.",
+    href: "/menu",
   },
   {
-    src: "/images/menu/kıymalı.png",
-    alt: "Kıymalı pide",
-    className: "md:col-span-3",
+    icon: "❓",
+    title: "SSS",
+    desc: "Sık sorulan sorular, servis ve çalışma saatleri bilgileri.",
+    href: "/sss",
   },
-  {
-    src: "/images/menu/kuşbaşı kaşarlı.png",
-    alt: "Kuşbaşılı kaşarlı pide",
-    className: "md:col-span-3",
-  },
-  {
-    src: "/images/menu/et dönerli.png",
-    alt: "Et dönerli pide",
-    className: "md:col-span-4",
-  },
-  {
-    src: "/images/menu/tam karışık pide.png",
-    alt: "Tam karışık pide",
-    className: "md:col-span-5",
-  },
-];
-
-const contactCards = [
   {
     icon: "📍",
-    title: "Adres",
-    desc: "Azmimilli, Serhat Sk.\n81020 Düzce",
-  },
-  {
-    icon: "📞",
-    title: "Telefon",
-    desc: "0380 524 57 01\nHer gün 10:00 - 22:00",
-  },
-  {
-    icon: "✉️",
-    title: "E-posta",
-    desc: "info@emrepide.com.tr",
+    title: "İletişim",
+    desc: "Telefon, konum, çalışma saatleri ve hızlı ulaşım bağlantıları.",
+    href: "/iletisim",
   },
 ];
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-koyu">
         <div className="absolute inset-0 hero-gradient" />
 
         <svg
-          className="absolute right-[-8rem] top-1/2 hidden h-[520px] w-[520px] -translate-y-1/2 opacity-[0.06] lg:block"
+          className="absolute right-[2%] top-1/2 hidden h-[420px] w-[420px] -translate-y-1/2 opacity-[0.06] xl:block"
           viewBox="0 0 200 200"
           fill="none"
           aria-hidden="true"
@@ -130,8 +106,7 @@ export default function Home() {
               <em className="italic text-gold">Pide Salonu</em>
             </h1>
             <p className="text-base text-krem/60 mt-6 mb-10 leading-relaxed font-light max-w-[480px]">
-              Ustanın elinden, taş fırından çıkan geleneksel Türk pideleri. Taze malzeme,
-              güçlü iç harç ve yıllardır değişmeyen lezzet dengesi.
+              Ustanın elinden, taş fırından çıkan geleneksel Türk pideleri. Taze malzeme, güçlü iç harç ve yıllardır değişmeyen lezzet dengesi.
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link
@@ -187,56 +162,40 @@ export default function Home() {
 
       <Marquee />
 
-      <section id="hakkimizda" className="py-24 px-6 lg:px-10 bg-background scroll-mt-20">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="relative">
-            <div className="bg-koyu rounded-lg p-10 text-krem relative overflow-hidden">
-              <span className="inline-block bg-primary text-white text-[0.7rem] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-sm mb-5">
-                Taş Fırın
-              </span>
-              <h3 className="font-[family-name:var(--font-serif)] text-[1.6rem] text-gold mb-4 italic leading-snug">
-                &quot;Pide bir sanattır,
-                <br />
-                her dilim bir hikaye.&quot;
-              </h3>
-              <p className="text-sm leading-relaxed text-krem/70">
-                1999 yılından bu yana aynı tarif, aynı özen ve aynı taş fırın ritmi ile çalışıyoruz.
-                Bizim için lezzet, günlük disiplinin sonucudur.
-              </p>
-              <span className="absolute text-[8rem] right-[-1rem] bottom-[-1rem] opacity-10">🥙</span>
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-primary text-white px-6 py-4 rounded-lg text-center shadow-xl z-10">
-              <strong className="block font-[family-name:var(--font-serif)] text-2xl">1999</strong>
-              <span className="text-[0.7rem] tracking-[0.1em] uppercase opacity-85">Kuruluş Yılı</span>
-            </div>
+      <section className="py-24 px-6 lg:px-10 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-primary inline-block mb-3">
+              Bölümler
+            </span>
+            <h2 className="font-[family-name:var(--font-serif)] text-[clamp(2rem,3.5vw,3rem)] leading-tight">
+              Site içinde
+              <br />
+              <em className="italic text-primary">rahat gezin</em>
+            </h2>
           </div>
 
-          <div>
-            <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-primary block mb-4">
-              Biz Kimiz
-            </span>
-            <h2 className="font-[family-name:var(--font-serif)] text-[clamp(2rem,3.5vw,2.8rem)] leading-tight mb-6">
-              Gelenekten gelen
-              <br />
-              <em className="italic text-primary">özgün lezzet</em>
-            </h2>
-            <p className="text-[0.95rem] leading-[1.9] text-text-muted mb-4">
-              Karadeniz usulü hamur işlerinin inceliğini, Düzce&apos;de sevilen güçlü iç harçlarla
-              birleştiriyoruz. Her ürün, taş fırında kontrollü ısı ile pişiyor.
-            </p>
-            <p className="text-[0.95rem] leading-[1.9] text-text-muted">
-              Sabah hazırlanan taze malzemeler, gün boyu sıcak kalan taş fırın ve yıllardır değişmeyen
-              iş disiplini sayesinde Emre Pide Salonu, mahalle klasiği olmayı sürdürüyor.
-            </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+            {quickLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-3xl border border-border bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all no-underline"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl mb-5">
+                  {item.icon}
+                </div>
+                <h3 className="font-[family-name:var(--font-serif)] text-[1.35rem] text-foreground mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-text-muted leading-7">{item.desc}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <div className="section-divider">
-        <span className="relative bg-background px-6 text-gold text-xl">✦</span>
-      </div>
-
-      <section id="menu" className="bg-koyu py-24 px-6 lg:px-10 scroll-mt-20">
+      <section id="menu" className="bg-koyu py-24 px-6 lg:px-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-gold inline-block mb-3">
@@ -289,44 +248,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[var(--acik-kahve)] py-24 px-6 lg:px-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-primary inline-block mb-3">
-              Foto Galeri
-            </span>
-            <h2 className="font-[family-name:var(--font-serif)] text-[clamp(2rem,3.5vw,3rem)] leading-tight">
-              Taş fırından çıkan
-              <br />
-              <em className="italic text-primary">gerçek görüntüler</em>
-            </h2>
-          </div>
+      <GallerySection />
 
-          <div className="grid grid-cols-2 md:grid-cols-12 auto-rows-[160px] md:auto-rows-[110px] gap-4">
-            {galleryImages.map((item) => (
-              <div
-                key={item.src}
-                className={`relative overflow-hidden rounded-[24px] bg-white shadow-[0_16px_40px_rgba(42,23,10,0.12)] ${item.className}`}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 hover:scale-105"
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent px-4 py-4 text-white text-sm font-medium">
-                  {item.alt}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <FAQ />
-
-      <section id="iletisim" className="bg-koyu py-24 px-6 lg:px-10 scroll-mt-20">
+      <section className="bg-koyu py-24 px-6 lg:px-10">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-[0.7rem] font-semibold tracking-[0.25em] uppercase text-gold inline-block mb-3">
             Bize Ulaşın
@@ -337,16 +261,6 @@ export default function Home() {
           <p className="text-krem/50 text-[0.95rem] mb-12">
             Rezervasyon, sipariş veya bilgi almak için doğrudan bize ulaşabilirsiniz.
           </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-12">
-            {contactCards.map((card) => (
-              <div key={card.title} className="contact-card-premium text-center">
-                <span className="text-3xl block mb-4">{card.icon}</span>
-                <h4 className="font-[family-name:var(--font-serif)] text-gold text-base mb-2">{card.title}</h4>
-                <p className="text-sm text-krem/60 whitespace-pre-line">{card.desc}</p>
-              </div>
-            ))}
-          </div>
 
           <div className="flex gap-4 justify-center flex-wrap">
             <Link
@@ -416,4 +330,3 @@ export default function Home() {
     </div>
   );
 }
-
