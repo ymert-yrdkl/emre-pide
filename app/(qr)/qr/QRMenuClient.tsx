@@ -18,7 +18,7 @@ export default function QRMenuClient() {
 
   return (
     <div className="min-h-screen bg-[#f7f4ee] text-[#1f140d]">
-      <main className="mx-auto w-full max-w-[780px] px-4 py-8">
+      <main className="mx-auto flex w-full max-w-[980px] flex-col items-center px-4 py-8">
         <header className="mb-6 text-center">
           <div className="mx-auto mb-2 flex w-fit items-center gap-3 rounded-2xl border border-[#e8ddcf] bg-white px-4 py-3 shadow-sm">
             <Image src="/images/logo.svg" alt="Emre Pide" width={46} height={46} priority className="rounded-md" />
@@ -39,7 +39,7 @@ export default function QRMenuClient() {
               <div className="flex h-full flex-col items-center justify-center">
                 <p className="mb-2 text-2xl">📋</p>
                 <h2 className="text-2xl font-semibold">Menü</h2>
-                <p className="mt-1 text-sm text-[#6f5849]">{totalCount} ürün - Sadece yazı ve fiyat</p>
+                <p className="mt-1 text-sm text-[#6f5849]">{totalCount} ürün - Görsel + yazı + fiyat</p>
               </div>
             </button>
 
@@ -58,8 +58,8 @@ export default function QRMenuClient() {
         )}
 
         {mode === "menu" && (
-          <section className="mx-auto w-full max-w-[700px]">
-            <div className="mb-6 flex flex-col items-center gap-3 text-center">
+          <section className="mx-auto flex w-full max-w-[760px] flex-col items-center">
+            <div className="mb-6 flex w-full max-w-[720px] flex-col items-center gap-3 text-center">
               <h2 className="font-[family-name:var(--font-playfair)] text-4xl">Menü</h2>
               <button
                 type="button"
@@ -70,7 +70,7 @@ export default function QRMenuClient() {
               </button>
             </div>
 
-            <div className="space-y-8">
+            <div className="w-full space-y-8">
               {categoryOrder.map((key) => {
                 const info = categoryInfo[key];
                 const items = menuData[key];
@@ -81,16 +81,25 @@ export default function QRMenuClient() {
                       {info.emoji} {info.label}
                     </h3>
 
-                    <ul className="space-y-2">
+                    <ul className="space-y-3">
                       {items.map((item) => (
                         <li
                           key={`${key}-${item.name}`}
-                          className="mx-auto flex w-full max-w-[620px] items-center justify-between rounded-xl border border-[#e8ddcf] bg-white px-4 py-3"
+                          className="mx-auto grid w-full max-w-[720px] grid-cols-[minmax(70px,1fr)_minmax(0,3fr)_auto] items-center gap-3 rounded-xl border border-[#e8ddcf] bg-white p-3"
                         >
-                          <span className="flex items-center gap-2 text-[1rem]">
+                          <div className="relative h-[66px] w-full max-w-[88px] justify-self-center overflow-hidden rounded-lg bg-[#f2e9dd]">
+                            {item.image ? (
+                              <Image src={item.image} alt={item.name} fill className="object-cover" sizes="88px" />
+                            ) : (
+                              <div className="absolute inset-0 flex items-center justify-center text-xl">{info.itemIcon}</div>
+                            )}
+                          </div>
+
+                          <span className="flex items-center gap-2 text-left text-[1rem]">
                             <span>{info.itemIcon}</span>
                             <span>{item.name}</span>
                           </span>
+
                           <span className="rounded-full bg-[#b63b2f]/10 px-3 py-1 text-sm font-semibold text-[#b63b2f]">
                             ₺{item.price}
                           </span>
