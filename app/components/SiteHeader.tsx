@@ -23,9 +23,11 @@ export default function SiteHeader() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${scrolled
-          ? "bg-[#140a06]/72 backdrop-blur-[18px] backdrop-saturate-[1.4] shadow-[0_1px_0_rgba(255,255,255,0.06),0_8px_32px_rgba(0,0,0,0.4)]"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400
+        bg-[#140a06]/80 backdrop-blur-[18px] backdrop-saturate-[1.4] shadow-[0_1px_0_rgba(255,255,255,0.06),0_8px_32px_rgba(0,0,0,0.4)]
+        md:shadow-none ${scrolled
+          ? "md:bg-[#140a06]/72 md:backdrop-blur-[18px] md:backdrop-saturate-[1.4] md:shadow-[0_1px_0_rgba(255,255,255,0.06),0_8px_32px_rgba(0,0,0,0.4)]"
+          : "md:bg-transparent md:backdrop-blur-none md:backdrop-saturate-100"
         }`}
     >
       <div className="site-shell flex min-h-[76px] items-center justify-between gap-4">
@@ -65,7 +67,7 @@ export default function SiteHeader() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex md:hidden flex-col items-center justify-center w-10 h-10 gap-[5px] rounded-[10px] border border-white/12 bg-white/4 cursor-pointer"
+            className="flex md:hidden flex-col items-center justify-center w-10 h-10 gap-[5px] rounded-[10px] border border-white/12 bg-white/8 cursor-pointer"
             aria-label="Menüyü Aç"
           >
             <span className={`block h-[2px] w-5 bg-[#e8151a] rounded-sm shadow-[0_0_6px_rgba(232,21,26,0.7)] transition-transform duration-300 ${mobileOpen ? "translate-y-[7px] rotate-45" : ""}`} />
@@ -79,14 +81,14 @@ export default function SiteHeader() {
       <div
         className={`md:hidden overflow-hidden transition-[max-height] duration-350 ease-in-out ${mobileOpen ? "max-h-80" : "max-h-0"}`}
       >
-        <nav className="site-shell flex flex-col gap-0.5 pb-4 bg-[#140a06]/85 backdrop-blur-[20px]">
+        <nav className="site-shell flex flex-col gap-1 pb-5 pt-3 bg-[#140a06]/95 backdrop-blur-[20px] rounded-b-2xl">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className="rounded-[10px] px-4 py-3.5 text-[0.9rem] font-semibold text-[#e8151a] no-underline transition-colors hover:bg-[rgba(232,21,26,0.08)]"
-              style={{ textShadow: "0 0 10px rgba(232,21,26,0.4)" }}
+              className="rounded-xl px-5 py-4 text-[1.1rem] font-bold no-underline transition-all border border-[#f4d7a0]/30 bg-white/5"
+              style={{ color: '#ffd66b', textShadow: '0 0 12px rgba(255,214,107,0.6)' }}
             >
               {item.label}
             </Link>
@@ -94,7 +96,7 @@ export default function SiteHeader() {
           <Link
             href="/iletisim"
             onClick={() => setMobileOpen(false)}
-            className="mt-1 flex items-center justify-center gap-2 min-h-[44px] px-5 py-2.5 rounded-full text-[0.82rem] font-bold uppercase tracking-[0.12em] no-underline bg-gradient-to-br from-[#c8000a] to-[#e8151a] text-white"
+            className="mt-2 flex items-center justify-center gap-2 min-h-[44px] px-5 py-2.5 rounded-full text-[0.82rem] font-bold uppercase tracking-[0.12em] no-underline bg-gradient-to-br from-[#c8000a] to-[#e8151a] text-white shadow-[0_4px_18px_rgba(200,0,10,0.4)]"
           >
             İletişim
           </Link>
