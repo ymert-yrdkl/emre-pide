@@ -14,7 +14,7 @@ export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/15 bg-[#1c120c]/92 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-transparent backdrop-blur-md">
       <div className="site-shell flex min-h-[78px] items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3 no-underline">
           <Image src="/images/logo.svg" alt="Emre Pide Logo" width={56} height={56} priority />
