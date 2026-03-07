@@ -4,6 +4,7 @@ import Link from "next/link";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import FAQ from "./components/FAQ";
+import HeroSlider from "./components/HeroSlider";
 
 const highlights = [
   { label: "Yıllık deneyim", value: "25+" },
@@ -54,9 +55,10 @@ export default function HomePage() {
 
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden bg-[#1c120c] py-20 text-white md:py-24">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(214,171,95,0.18),transparent_28%),radial-gradient(circle_at_80%_30%,rgba(183,58,45,0.26),transparent_36%)]" />
-          <div className="site-shell relative grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:gap-14">
+        <section className="relative overflow-hidden bg-[#1c120c] min-h-screen flex items-center">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_15%_10%,rgba(214,171,95,0.15),transparent_45%),radial-gradient(ellipse_50%_60%_at_85%_25%,rgba(183,40,30,0.28),transparent_45%),radial-gradient(ellipse_40%_70%_at_50%_100%,rgba(30,8,4,0.9),transparent_60%)]" />
+          <div className="hero-grain absolute inset-0 z-[2]" />
+          <div className="site-shell relative z-10 grid items-center gap-14 pt-28 pb-16 lg:grid-cols-[1fr_minmax(300px,460px)] w-full">
             <div className="max-w-2xl">
               <span className="section-kicker text-[#f4d7a0]">Düzce&apos;de taş fırın</span>
               <h1 className="font-[family-name:var(--font-playfair)] text-[clamp(3rem,6vw,5.4rem)] leading-[0.98] text-[#fff6e8]">
@@ -87,28 +89,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="dark-card relative overflow-hidden p-5 md:p-6">
-                <div className="soft-grid absolute inset-0 opacity-20" />
-                <div className="relative aspect-[4/4.4] overflow-hidden rounded-[28px] bg-[#2c1b14]">
-                  <Image
-                    src="/images/menu/trabzon pide.png"
-                    alt="Trabzon pide"
-                    fill
-                    className="object-contain scale-105"
-                    sizes="(max-width: 1024px) 100vw, 480px"
-                    priority
-                  />
-                </div>
-                <div className="relative mt-5 rounded-[24px] bg-white/7 px-5 py-5">
-                  <p className="text-[0.74rem] uppercase tracking-[0.18em] text-[#f4d7a0]">Bugünün vurgusu</p>
-                  <h2 className="mt-3 font-[family-name:var(--font-playfair)] text-[1.8rem] text-white">Trabzon Pide</h2>
-                  <p className="mt-2 text-sm leading-7 text-white/65">
-                    Karadeniz çizgisini taşıyan tereyağı dokunuşlu güçlü klasik.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <HeroSlider />
           </div>
         </section>
 

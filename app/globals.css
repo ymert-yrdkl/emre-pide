@@ -146,3 +146,54 @@ a {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Nav glow — kırmızı parlak efekt */
+.nav-link-glow {
+  color: #e8151a;
+  text-shadow:
+    0 0 12px rgba(232,21,26,0.55),
+    0 0 28px rgba(232,21,26,0.25);
+  transition: color 0.2s, text-shadow 0.2s;
+  position: relative;
+}
+.nav-link-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0; right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, #e8151a, #c8000a);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+  box-shadow: 0 0 6px #e8151a;
+}
+.nav-link-glow:hover {
+  color: #ff3a3f;
+  text-shadow:
+    0 0 16px rgba(255,58,63,0.75),
+    0 0 40px rgba(232,21,26,0.35);
+}
+.nav-link-glow:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hero card — premium cam efekti */
+.hero-card {
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: linear-gradient(160deg, rgba(60,30,16,0.85), rgba(20,10,6,0.95));
+  border-radius: 32px;
+  padding: 1.4rem;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.07);
+  backdrop-filter: blur(12px);
+}
+
+/* Hero doku overlay */
+.hero-grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+}
+
