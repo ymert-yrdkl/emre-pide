@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,22 +12,9 @@ const navItems = [
 
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-[#1c120c]/95 backdrop-blur border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
-          : "bg-transparent border-b border-transparent"
-        }`}
-    >
+    <header className="sticky top-0 z-50 border-b border-white/15 bg-[#1c120c]/92 backdrop-blur">
       <div className="site-shell flex min-h-[78px] items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3 no-underline">
           <Image src="/images/logo.svg" alt="Emre Pide Logo" width={56} height={56} priority />
