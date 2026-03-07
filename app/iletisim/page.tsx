@@ -112,9 +112,9 @@ export default function IletisimPage() {
                         </div>
                         <div className="overflow-hidden rounded-[28px] border border-white/10">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.8!2d30.8373!3d40.8438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDUwJzM3LjciTiAzMMKwNTAnMTQuMyJF!5e0!3m2!1str!2str!4v1"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4268.906733844717!2d31.15340494859973!3d40.83734403667689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x409d7543379f4dab%3A0x9c038e368282536!2sEmre%20Pide%20Salonu!5e0!3m2!1str!2str!4v1772844129924!5m2!1str!2str"
                                 width="100%"
-                                height="400"
+                                height="450"
                                 style={{ border: 0 }}
                                 allowFullScreen
                                 loading="lazy"
