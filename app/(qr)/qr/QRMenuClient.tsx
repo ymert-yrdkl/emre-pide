@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
@@ -87,9 +87,20 @@ export default function QRMenuClient() {
                             <span>{info.itemIcon}</span>
                             <span>{item.name}</span>
                           </span>
-                          <span className="rounded-full bg-[#b63b2f]/10 px-3 py-1 text-sm font-semibold text-[#b63b2f]">
-                            ₺{item.price}
-                          </span>
+                          {item.price15 ? (
+                            <span className="flex flex-col items-end gap-0.5">
+                              <span className="rounded-full bg-[#b63b2f]/10 px-2.5 py-0.5 text-xs font-semibold text-[#b63b2f]">
+                                1P: ₺{item.price}
+                              </span>
+                              <span className="rounded-full bg-[#b63b2f]/5 px-2.5 py-0.5 text-[11px] font-medium text-[#b63b2f]/80">
+                                1.5P: ₺{item.price15}
+                              </span>
+                            </span>
+                          ) : (
+                            <span className="rounded-full bg-[#b63b2f]/10 px-3 py-1 text-sm font-semibold text-[#b63b2f]">
+                              ₺{item.price}
+                            </span>
+                          )}
                         </li>
                       ))}
                     </ul>

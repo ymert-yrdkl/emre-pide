@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 
 import { categoryInfo, menuData } from "@/app/data/menu";
 
@@ -64,9 +64,26 @@ export default function MenuSections({ compact = false, variant = "default" }: M
                     </h3>
                   </div>
 
-                  <div className={isQr ? "flex-shrink-0 bg-[#b73a2d]/10 text-[#b73a2d] font-extrabold text-sm px-3 py-1.5 rounded-lg" : "flex-shrink-0 bg-[var(--primary)]/8 text-[var(--primary)] font-bold text-sm px-3 py-1.5 rounded-lg"}>
-                    ₺{item.price}
-                  </div>
+                  {item.price15 ? (
+                    <div className={isQr
+                      ? "flex-shrink-0 flex flex-col items-end gap-0.5"
+                      : "flex-shrink-0 flex flex-col items-end gap-0.5"}>
+                      <span className={isQr
+                        ? "bg-[#b73a2d]/10 text-[#b73a2d] font-extrabold text-xs px-2.5 py-1 rounded-md"
+                        : "bg-[var(--primary)]/8 text-[var(--primary)] font-bold text-xs px-2.5 py-1 rounded-md"}>
+                        1P: ₺{item.price}
+                      </span>
+                      <span className={isQr
+                        ? "bg-[#b73a2d]/5 text-[#b73a2d]/80 font-semibold text-[11px] px-2.5 py-0.5 rounded-md"
+                        : "bg-[var(--primary)]/4 text-[var(--primary)]/80 font-semibold text-[11px] px-2.5 py-0.5 rounded-md"}>
+                        1.5P: ₺{item.price15}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className={isQr ? "flex-shrink-0 bg-[#b73a2d]/10 text-[#b73a2d] font-extrabold text-sm px-3 py-1.5 rounded-lg" : "flex-shrink-0 bg-[var(--primary)]/8 text-[var(--primary)] font-bold text-sm px-3 py-1.5 rounded-lg"}>
+                      ₺{item.price}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

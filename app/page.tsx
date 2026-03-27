@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import SiteHeader from "./components/SiteHeader";
@@ -15,19 +15,19 @@ const highlights = [
 const featuredItems = [
   {
     name: "Trabzon Pide",
-    price: "220 TL",
+    price: "300 TL",
     text: "Karadeniz çizgisini taşıyan, tereyağı dokunuşlu güçlü klasik.",
     image: "/images/menu/trabzon pide.png",
   },
   {
     name: "Kavurmalı Pide",
-    price: "250 TL",
+    price: "350 TL",
     text: "Doyurucu iç harç, taş fırın hamuru ve sıcak servis dengesi.",
     image: "/images/menu/kavurmalı pide.png",
   },
   {
     name: "Kıymalı Pide",
-    price: "150 TL",
+    price: "200 TL",
     text: "Emre Pide'nin en bilinen ürünlerinden biri; net, tanıdık ve güçlü tat.",
     image: "/images/menu/kıymalı.png",
   },
