@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 
 const slides = [
@@ -21,10 +21,39 @@ const slides = [
     },
 ];
 
+const SWIPE_THRESHOLD = 50;
+
 export default function HeroSlider() {
     const [current, setCurrent] = useState(0);
     const [fade, setFade] = useState(true);
+    const containerRef = useRef<HTMLDivElement>(null);
 
+    // Touch / mouse drag state
+    const dragState = useRef({
+        isDragging: false,
+        startX: 0,
+        startY: 0,
+        deltaX: 0,
+        isHorizontal: null as boolean | null,
+    });
+
+    const goSlide = useCallback((n: number) => {
+        setFade(false);
+        setTimeout(() => {
+            setCurrent(n);
+            setFade(true);
+        }, 200);
+    }, []);
+
+    const goNext = useCallback(() => {
+        goSlide((current + 1) % slides.length);
+    }, [current, goSlide]);
+
+    const goPrev = useCallback(() => {
+        goSlide((current - 1 + slides.length) % slides.length);
+    }, [current, goSlide]);
+
+    // Auto-play
     useEffect(() => {
         const interval = setInterval(() => {
             setFade(false);
@@ -36,31 +65,92 @@ export default function HeroSlider() {
         return () => clearInterval(interval);
     }, []);
 
-    const goSlide = (n: number) => {
-        setFade(false);
-        setTimeout(() => {
-            setCurrent(n);
-            setFade(true);
-        }, 200);
-    };
+    // Touch events
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const onStart = (x: number, y: number) => {
+            dragState.current = { isDragging: true, startX: x, startY: y, deltaX: 0, isHorizontal: null };
+        };
+
+        const onMove = (x: number, y: number) => {
+            const state = dragState.current;
+            if (!state.isDragging) return;
+            state.deltaX = x - state.startX;
+
+            // Determine swipe direction on first significant movement
+            if (state.isHorizontal === null) {
+                const deltaY = Math.abs(y - state.startY);
+                const deltaX = Math.abs(state.deltaX);
+                if (deltaX > 8 || deltaY > 8) {
+                    state.isHorizontal = deltaX > deltaY;
+                }
+            }
+        };
+
+        const onEnd = () => {
+            const state = dragState.current;
+            if (!state.isDragging) return;
+            state.isDragging = false;
+
+            if (state.isHorizontal && Math.abs(state.deltaX) > SWIPE_THRESHOLD) {
+                if (state.deltaX < 0) goNext();
+                else goPrev();
+            }
+        };
+
+        // Touch
+        const handleTouchStart = (e: TouchEvent) => onStart(e.touches[0].clientX, e.touches[0].clientY);
+        const handleTouchMove = (e: TouchEvent) => onMove(e.touches[0].clientX, e.touches[0].clientY);
+        const handleTouchEnd = () => onEnd();
+
+        // Mouse
+        const handleMouseDown = (e: MouseEvent) => {
+            e.preventDefault();
+            onStart(e.clientX, e.clientY);
+        };
+        const handleMouseMove = (e: MouseEvent) => onMove(e.clientX, e.clientY);
+        const handleMouseUp = () => onEnd();
+        const handleMouseLeave = () => { if (dragState.current.isDragging) onEnd(); };
+
+        el.addEventListener("touchstart", handleTouchStart, { passive: true });
+        el.addEventListener("touchmove", handleTouchMove, { passive: true });
+        el.addEventListener("touchend", handleTouchEnd);
+        el.addEventListener("mousedown", handleMouseDown);
+        el.addEventListener("mousemove", handleMouseMove);
+        el.addEventListener("mouseup", handleMouseUp);
+        el.addEventListener("mouseleave", handleMouseLeave);
+
+        return () => {
+            el.removeEventListener("touchstart", handleTouchStart);
+            el.removeEventListener("touchmove", handleTouchMove);
+            el.removeEventListener("touchend", handleTouchEnd);
+            el.removeEventListener("mousedown", handleMouseDown);
+            el.removeEventListener("mousemove", handleMouseMove);
+            el.removeEventListener("mouseup", handleMouseUp);
+            el.removeEventListener("mouseleave", handleMouseLeave);
+        };
+    }, [goNext, goPrev]);
 
     const slide = slides[current];
 
     return (
-        <div className="hero-card">
+        <div ref={containerRef} className="hero-card select-none cursor-grab active:cursor-grabbing">
             {/* Üst ışık çizgisi */}
             <div className="absolute -top-px left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-[#f4d7a0]/40 to-transparent rounded-full" />
 
             {/* Slider görseli */}
-            <div className="relative aspect-square overflow-hidden rounded-[24px] bg-[#2c1b14]">
+            <div className="relative aspect-square overflow-hidden rounded-[24px] bg-[#2c1b14] pointer-events-none">
                 <div className={`absolute inset-0 transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}>
                     <Image
                         src={slide.image}
                         alt={slide.title}
                         fill
                         className="object-contain scale-105"
-                        sizes="(max-width: 1024px) 100vw, 460px"
+                        sizes="(max-width: 1024px) 340px, 460px"
                         priority
+                        draggable={false}
                     />
                 </div>
             </div>
