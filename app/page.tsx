@@ -55,13 +55,13 @@ export default function HomePage() {
 
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden bg-[#1c120c] min-h-screen flex items-center">
+        <section className="relative overflow-hidden bg-[#1c120c]">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_15%_10%,rgba(214,171,95,0.15),transparent_45%),radial-gradient(ellipse_50%_60%_at_85%_25%,rgba(183,40,30,0.28),transparent_45%),radial-gradient(ellipse_40%_70%_at_50%_100%,rgba(30,8,4,0.9),transparent_60%)]" />
           <div className="hero-grain absolute inset-0 z-[2]" />
-          <div className="site-shell relative z-10 grid items-center gap-14 pt-28 pb-16 lg:grid-cols-[1fr_minmax(300px,460px)] w-full">
+          <div className="site-shell relative z-10 grid items-center gap-10 pt-28 pb-16 lg:gap-14 lg:grid-cols-[1fr_minmax(300px,460px)] w-full">
             <div className="max-w-2xl">
               <span className="section-kicker text-[#f4d7a0]">Düzce&apos;de taş fırın</span>
-              <h1 className="font-[family-name:var(--font-playfair)] text-[clamp(3rem,6vw,5.4rem)] leading-[0.98] text-[#fff6e8]">
+              <h1 className="font-[family-name:var(--font-playfair)] text-[clamp(2.4rem,6vw,5.4rem)] leading-[0.98] text-[#fff6e8]">
                 Emre Pide için
                 <br />
                 <span className="text-[#f4d7a0]">yeni bir başlangıç</span>
@@ -79,17 +79,19 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="mt-12 grid grid-cols-3 gap-3 sm:gap-4">
                 {highlights.map((item) => (
-                  <div key={item.label} className="rounded-[24px] border border-white/12 bg-white/6 px-6 py-5 backdrop-blur-sm">
-                    <p className="font-[family-name:var(--font-playfair)] text-[1.85rem] text-[#f4d7a0]">{item.value}</p>
-                    <p className="mt-1 text-[0.74rem] uppercase tracking-[0.18em] text-white/52">{item.label}</p>
+                  <div key={item.label} className="rounded-[24px] border border-white/12 bg-white/6 px-4 py-4 sm:px-6 sm:py-5 backdrop-blur-sm">
+                    <p className="font-[family-name:var(--font-playfair)] text-[1.4rem] sm:text-[1.85rem] text-[#f4d7a0]">{item.value}</p>
+                    <p className="mt-1 text-[0.65rem] sm:text-[0.74rem] uppercase tracking-[0.18em] text-white/52">{item.label}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <HeroSlider />
+            <div className="mx-auto w-full max-w-[340px] lg:max-w-none">
+              <HeroSlider />
+            </div>
           </div>
         </section>
 

@@ -30,11 +30,13 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const sectionRef = useRef<HTMLElement>(null);
     const pideRef = useRef<HTMLDivElement>(null);
+    const pideRefDesktop = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const section = sectionRef.current;
-        const pide = pideRef.current;
-        if (!section || !pide) return;
+        const pideMobile = pideRef.current;
+        const pideDesktop = pideRefDesktop.current;
+        if (!section) return;
 
         const handleScroll = () => {
             const rect = section.getBoundingClientRect();
@@ -46,7 +48,12 @@ export default function FAQ() {
             const progress = Math.min(1, Math.max(0, (start - sectionTop) / (start - end)));
 
             const rotation = progress * 360;
-            pide.style.transform = `translateX(30%) rotate(${rotation}deg)`;
+            if (pideMobile) {
+                pideMobile.style.transform = `rotate(${rotation}deg)`;
+            }
+            if (pideDesktop) {
+                pideDesktop.style.transform = `translateX(30%) rotate(${rotation}deg)`;
+            }
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
@@ -81,7 +88,24 @@ export default function FAQ() {
             />
 
             <div className="site-shell relative">
-                <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-8 items-center">
+            <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-8 items-center">
+                    {/* Mobil: Dönen Trabzon Pide — üstte, küçük */}
+                    <div className="flex lg:hidden items-center justify-center relative h-[220px] -mb-4">
+                        <div
+                            ref={pideRef}
+                            className="w-[250px] h-[250px] transition-none"
+                            style={{ transform: "rotate(0deg)" }}
+                        >
+                            <Image
+                                src="/images/menu/trabzon pide.png"
+                                alt="Düzce taş fırında hazırlanan Trabzon pidesi - Emre Pide Salonu"
+                                fill
+                                className="object-contain drop-shadow-[0_15px_40px_rgba(0,0,0,0.5)]"
+                                sizes="250px"
+                            />
+                        </div>
+                    </div>
+
                     {/* Sol: FAQ Akordeon */}
                     <div>
                         <span className="section-kicker text-[#f4d7a0]">Sıkça Sorulan Sorular</span>
@@ -127,10 +151,10 @@ export default function FAQ() {
                         </div>
                     </div>
 
-                    {/* Sağ: Dönen Trabzon Pide — büyütülmüş, FAQ boyutunda */}
+                    {/* Sağ: Dönen Trabzon Pide — desktop, büyük */}
                     <div className="hidden lg:flex items-center justify-end relative min-h-[700px]">
                         <div
-                            ref={pideRef}
+                            ref={pideRefDesktop}
                             className="absolute right-0 w-[750px] h-[750px] transition-none"
                             style={{ transform: "translateX(30%) rotate(0deg)" }}
                         >
